@@ -1,0 +1,112 @@
+## Category: Web Exploitation
+
+### dont-use-client-side
+Description
+Can you break into this super secure portal? https://jupiter.challenges.picoctf.org/problem/37821/ (link) or http://jupiter.challenges.picoctf.org:37821
+
+1. Inspect -> Sources -> open file 37821/
+2. Reorder the source code based on "split"
+
+#### Grab the code
+```
+<script type="text/javascript">
+  function verify() {
+    checkpass = document.getElementById("pass").value;
+    split = 4;
+    if (checkpass.substring(0, split) == 'pico') {
+      if (checkpass.substring(split*6, split*7) == 'a3c8') {
+        if (checkpass.substring(split, split*2) == 'CTF{') {
+         if (checkpass.substring(split*4, split*5) == 'ts_p') {
+          if (checkpass.substring(split*3, split*4) == 'lien') {
+            if (checkpass.substring(split*5, split*6) == 'lz_1') {
+              if (checkpass.substring(split*2, split*3) == 'no_c') {
+                if (checkpass.substring(split*7, split*8) == '9}') {
+                  alert("Password Verified")
+                  }
+                }
+              }
+      
+            }
+          }
+        }
+      }
+    }
+    else {
+      alert("Incorrect password");
+```
+
+#### Reordered version
+```
+<script type="text/javascript">
+  function verify() {
+    checkpass = document.getElementById("pass").value;
+    split = 4;
+    if (checkpass.substring(0, split) == 'pico') {
+        if (checkpass.substring(split, split*2) == 'CTF{') {
+            if (checkpass.substring(split*2, split*3) == 'no_c') {
+                if (checkpass.substring(split*3, split*4) == 'lien') {
+                    if (checkpass.substring(split*4, split*5) == 'ts_p') {
+                        if (checkpass.substring(split*5, split*6) == 'lz_1') {
+                            if (checkpass.substring(split*6, split*7) == 'a3c8') {
+                                if (checkpass.substring(split*7, split*8) == '9}') {
+                  alert("Password Verified")
+                  }
+                }
+              }
+      
+            }
+          }
+        }
+      }
+    }
+    else {
+      alert("Incorrect password");
+```
+picoCTF{no_clients_plz_1a3c89}
+
+### Insp3ct0r
+Description
+Kishor Balan tipped us off that the following code may need inspection: https://jupiter.challenges.picoctf.org/problem/41511/ (link) or http://jupiter.challenges.picoctf.org:41511
+
+1. Inspect -> Sources -> open file 41511/ get the 1st piece -> open file mycss.css get the 2nd piece -> open file myjs.js get the 3rd piece 
+```
+<!-- Html is neat. Anyways have 1/3 of the flag: picoCTF{tru3_d3 -->
+/* You need CSS to make pretty pages. Here's part 2/3 of the flag: t3ct1ve_0r_ju5t */
+/* Javascript sure is neat. Anyways part 3/3 of the flag: _lucky?832b0699} */
+```
+picoCTF{tru3_d3t3ct1ve_0r_ju5t_lucky?832b0699}
+
+### where are the robots
+Description
+Can you find the robots? https://jupiter.challenges.picoctf.org/problem/60915/ (link) or http://jupiter.challenges.picoctf.org:60915
+
+1. Grab the origional url: 
+    https://jupiter.challenges.picoctf.org/problem/60915/
+2. Add 'robots.txt' to the end: 
+    https://jupiter.challenges.picoctf.org/problem/60915/robots.txt
+3. Get the information in .txt file:
+    User-agent: *
+    Disallow: /8028f.html
+4. use '/8028f.html' to replace 'robots.txt':
+    https://jupiter.challenges.picoctf.org/problem/60915/8028f.html
+
+picoCTF{ca1cu1at1ng_Mach1n3s_8028f}
+
+##### Resources
+https://www.cloudflare.com/learning/bots/what-is-robots-txt/
+How do 'Disallow' commands work in a robots.txt file?
+The Disallow command is the most common in the robots exclusion protocol. It tells bots not to access the webpage or set of webpages that come after the command. Disallowed pages aren't necessarily "hidden" 
+– they just aren't useful for the average Google or Bing user, so they aren't shown to them. Most of the time, a user on the website can still navigate to these pages if they know where to find them.
+The Disallow command can be used in a number of ways, several of which are displayed in the example above.
+
+https://developers.google.com/search/docs/crawling-indexing/robots/intro#:~:text=A%20robots.txt%20file%20tells,or%20password%2Dprotect%20the%20page.
+
+### Facotry Login
+Description
+The factory is hiding things from all of its users. Can you login as Joe and find what they've been looking at? https://jupiter.challenges.picoctf.org/problem/44573/ (link) or http://jupiter.challenges.picoctf.org:44573
+
+1. Inspect -> Application -> Cookies -> admin value False to True -> refresh the page
+
+picoCTF{th3_c0nsp1r4cy_l1v3s_0c98aacc}
+
+### Inspect HTML
