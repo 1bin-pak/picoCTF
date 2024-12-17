@@ -115,5 +115,6 @@ ZWDg (gejfw djf zacwpfx wex dqar) afx a wscx jd zjicpwxf gxzpfbws zjicxwbwbjv. Z
 #### Hint:
 #### 1. Try a frequency attack
 #### 2. Do the punctuation and the individual words help you make any substitutions?
-1. https://www.guballa.de/substitution-solver
-# This shit is wrong!!!! fix it!!!!
+1. https://planetcalc.com/8047/
+picoCTF{FR3XU3NCY_4774CK5_4R3_C001_4871E6FB}
+
