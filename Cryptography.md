@@ -119,3 +119,89 @@ ZWDg (gejfw djf zacwpfx wex dqar) afx a wscx jd zjicpwxf gxzpfbws zjicxwbwbjv. Z
    
 picoCTF{FR3XU3NCY_4774CK5_4R3_C001_4871E6FB}
 
+### substitution1
+Description A second message has come in the mail, and it seems almost identical to the first one. Maybe the same thing will work again. Download the message here:
+
+ZWDg (gejfw djf zacwpfx wex dqar) afx a wscx jd zjicpwxf gxzpfbws zjicxwbwbjv. Zjvwxgwavwg afx cfxgxvwxm hbwe a gxw jd zeaqqxvrxg hebze wxgw wexbf zfxawbybws, wxzevbzaq (avm rjjrqbvr) gnbqqg, avm cfjtqxi-gjqybvr atbqbws. Zeaqqxvrxg pgpaqqs zjyxf a vpitxf jd zawxrjfbxg, avm hexv gjqyxm, xaze sbxqmg a gwfbvr (zaqqxm a dqar) hebze bg gptibwwxm wj av jvqbvx gzjfbvr gxfybzx. ZWDg afx a rfxaw has wj qxafv a hbmx affas jd zjicpwxf gxzpfbws gnbqqg bv a gadx, qxraq xvybfjvixvw, avm afx ejgwxm avm cqasxm ts iavs gxzpfbws rfjpcg afjpvm wex hjfqm djf dpv avm cfazwbzx. Djf webg cfjtqxi, wex dqar bg: cbzjZWD{DF3LP3VZS_4774ZN5_4F3_Z001_4871X6DT}
+
+Hint:
+1. Try a frequency attack
+2. Do the punctuation and the individual words help you make any substitutions?
+https://planetcalc.com/8047/
+
+picoCTF{FR3XU3NCY_4774CK5_4R3_C001_4871E6FB}
+
+
+### substitution2
+Description
+It seems that another encrypted message has been intercepted. The encryptor seems to have learned their lesson though and now there isn't any punctuation! Can you still crack the cipher?
+Download the message here:
+
+isnfnnpctitnznfmxhisnfwnxxntimjxctsnascdstushhxuhgqbinftnubfciruhgqnicichktckuxbackdurjnfqmifchimkabturjnfusmxxnkdnisntnuhgqnicichktehubtqfcgmfcxrhktrtingtmagckctifmichkebkamgnkimxtwscusmfnznfrbtnebxmkagmfonimjxntocxxtshwnznfwnjnxcnznisnqfhqnfqbfqhtnhemscdstushhxuhgqbinftnubfciruhgqnicichkctkhihkxrihinmuszmxbmjxntocxxtjbimxthihdnitibankitckinfntinackmkanpucinamjhbiuhgqbinftucnkunanenktcznuhgqnicichktmfnheinkxmjhfchbtmeemcftmkauhgnahwkihfbkkckdusnuoxctitmkanpnubickduhkecdtufcqitheenktnhkisnhisnfsmkactsnmzcxrehubtnahknpqxhfmichkmkacgqfhzctmichkmkaheinksmtnxngnkitheqxmrwnjnxcnznmuhgqnicichkihbusckdhkisnheenktcznnxngnkitheuhgqbinftnubfcirctisnfnehfnmjniinfznscuxnehfinusnzmkdnxctgihtibankitckmgnfcumkscdstushhxtebfisnfwnjnxcnznismimkbkanftimkackdheheenktczninuskcvbntctnttnkicmxehfghbkickdmkneenuicznanenktnmkaismiisnihhxtmkauhkecdbfmichkehubtnkuhbkinfnackanenktcznuhgqnicichktahntkhixnmatibankitihokhwisncfnkngrmtneenuicznxrmtinmusckdisngihmuicznxrisckoxconmkmiimuonfqcuhuiectmkheenktcznxrhfcnkinascdstushhxuhgqbinftnubfciruhgqnicichkismitnnotihdnknfminckinfntickuhgqbinftucnkunmghkdscdstushhxnftinmusckdisngnkhbdsmjhbiuhgqbinftnubfcirihqcvbnisncfubfchtcirghiczmickdisngihnpqxhfnhkisncfhwkmkankmjxckdisngihjniinfanenkaisncfgmusckntisnexmdctqcuhUIE{K6F4G_4K41R515_15_73A10B5_702E03EU}
+Hint:
+1. Try refining your frequency attack, maybe analyzing groups of letters would improve your results?
+https://planetcalc.com/8047/
+
+picoCTF{N6R4M_4N41Y515_15_73D10U5_702F03FC}
+
+### basic-mod1
+Description \
+We found this weird message being passed around on the servers, we think we have a working decryption scheme. \
+Download the message here.
+Take each number mod 37 and map it to the following character set: 0-25 is the alphabet (uppercase), 26-35 are the decimal digits, and 36 is an underscore. \
+Wrap your decrypted message in the picoCTF flag format (i.e. picoCTF{decrypted_message}): \
+128 322 353 235 336 73 198 332 202 285 57 87 262 221 218 405 335 101 256 227 112 140 \
+##### Source: 
+https://github.com/noamgariani11/picoCTF-2022-Writeup/blob/main/Cryptography/basic-mod1/basic-mod1.md. 
+#### Definitely needs more practice on the scripts
+```
+arr = [128,322,353,235,336,73,198,332,202,285,57,87,262,221,218,405,335,101,256,227,112,140 ]
+characterSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_"
+flag = "picoCTF{"
+
+for i in range(len(arr)):
+	arr[i] = arr[i] % 37
+	flag += characterSet[arr[i]]
+
+flag += "}"
+print(flag)
+```
+picoCTF{R0UND_N_R0UND_79C18FB3}
+
+
+### basic-mod2
+Description
+A new modular challenge!
+Download the message here.
+Take each number mod 41 and find the modular inverse for the result. Then map to the following character set: 1-26 are the alphabet, 27-36 are the decimal digits, and 37 is an underscore.
+Wrap your decrypted message in the picoCTF flag format (i.e. picoCTF{decrypted_message}):
+104 372 110 436 262 173 354 393 351 297 241 86 262 359 256 441 124 154 165 165 219 288 42
+
+```
+arr = [104,372,110,436,262,173,354,393,351,297,241,86,262,359,256,441,124,154,165,165,219,288 ,42]
+characterSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_"
+flag = "picoCTF{"
+
+for i in range(len(arr)):
+        arr[i] = pow(arr[i], -1, 41)
+        flag += characterSet[arr[i]-1]
+
+flag += "}"
+print(flag)
+```
+picoCTF{1NV3R53LY_H4RD_DADAACAA}
+
+### Morse-Code
+Description
+Morse code is well known. Can you decrypt this?
+Download the file here.
+Wrap your answer with picoCTF{}, put underscores in place of pauses, and use all lowercase.
+
+1. Download the audio file
+2. Upload to the website: \
+   https://morsecode.world/international/decoder/audio-decoder-adaptive.html
+   Get: \
+   WH47 H47H 90D W20U9H7
+3. Just remember, in case you get any gaps in the decoded message replace them with ‘_’, and wrap the flag with picoCTF{}
+##### Source: https://h4krg33k.medium.com/picoctf-2022-cryptography-writeups-145a6f14ac6f
+picoCTF{WH47_H47H_90D_W20U9H7}
