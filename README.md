@@ -7,3 +7,11 @@ https://play.picoctf.org/practice?difficulty=1&page=1
 ### General Skills
 ### Binary Exploitation
 
+## Helpful Resources
+### Tools:
+https://hackthematrixforlife.wordpress.com/ctftools/ \
+https://ctftool.com/ \
+https://gchq.github.io/CyberChef/#input=YkROaGNtNWZkR2d6WDNJd2NETTEg&ieol=FF&oeol=FF \
+https://ringzer0ctf.com/tool \
+https://www.cryptool.org/en/cto/ \
+https://www.cachesleuth.com/multidecoder/
