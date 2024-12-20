@@ -9,6 +9,7 @@ https://play.picoctf.org/practice?difficulty=1&page=1
 
 ## Helpful Resources
 ### Tools:
+https://toolbox.googleapps.com/apps/encode_decode/ \
 https://hackthematrixforlife.wordpress.com/ctftools/ \
 https://ctftool.com/ \
 https://gchq.github.io/CyberChef/#input=YkROaGNtNWZkR2d6WDNJd2NETTEg&ieol=FF&oeol=FF \
