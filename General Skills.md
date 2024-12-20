@@ -173,3 +173,132 @@ Base 16 to decimal calculation:
 2. (0X3D)16 = (0 × 163) + (NaN × 162) + (3 × 161) + (13 × 160) = (61)10
 
 picoCTF{61}
+
+### Strings it
+Description\
+Can you find the flag in file without running it? 
+
+1. Open the file in the file in the online Python Editor: https://www.online-python.com/
+2. The CTF is directly given as a string (not seperated substrings).
+
+picoCTF{5tRIng5_1T_7f766a23}
+
+
+### Bases
+Description \
+What does this bDNhcm5fdGgzX3IwcDM1 mean? I think it has something to do with bases.
+
+#### Need to Know:
+https://www.microfocus.com/documentation/visual-cobol/vc80/CSWin/BKCJCJDEFNS009.html \
+Base64 is a scheme for converting binary data to printable ASCII characters, namely the upper- and lower-case Roman alphabet characters (A–Z, a–z), the numerals (0–9), and the "+" and "/" symbols, with the "=" symbol as a special suffix code. The data's original length must be a multiple of eight bits.
+
+1. Put the string into the Base 64 decoder
+2. Decode it once and get: \
+l3arn_th3_r0p35
+
+picoCTF{l3arn_th3_r0p35}
+
+
+### Lets Warm Up
+Description \
+If I told you a word started with 0x70 in hexadecimal, what would it start with in ASCII?
+
+1. https://neapay.com/online-tools/hex-to-ascii-converter.html
+2. Get: p
+
+picoCTF{p}
+
+
+### Convertme.py
+Description
+Run the Python script and convert the given number from decimal to binary to get the flag.
+Download Python script
+
+#### Hint:
+
+1. Look up a decimal to binary number conversion app on the web or use your computer's calculator!
+2. The str_xor function does not need to be reverse engineered for this challenge.
+3. If you have Python on your computer, you can download the script normally and run it. Otherwise, use the wget command in the webshell.
+4. To use wget in the webshell, first right click on the download link and select 'Copy Link' or 'Copy Link Address'
+5. Type everything after the dollar sign in the webshell: $ wget , then paste the link after the space after wget and press enter. This will download the script for you in the webshell so you can run it!
+6. Finally, to run the script, type everything after the dollar sign and then press enter: $ python3 convertme.py
+
+Steps:
+
+1. Run the code
+2. Get:If 28 is in decimal base, what is it in binary base?
+3. Convert 28 into binary, get: 11100
+4. Enter 11100 and get the flag
+
+picoCTF{4ll_y0ur_b4535_9c3b7d4d}
+
+
+### Fixme1.py
+Description \
+Fix the syntax error in this Python script to print the flag. \
+Download Python script
+
+```
+flag = str_xor(flag_enc, 'enkidu')
+  print('That is correct! Here\'s your flag: ' + flag)
+```
+1. Fix the indentation of the print statement
+
+
+picoCTF{1nd3nt1ty_cr1515_182342f7}
+
+
+### Fixme2.py
+
+Description \
+Fix the syntax error in the Python script to print the flag. \
+Download Python script
+```
+# Check that flag is not empty
+if flag = "":
+  print('String XOR encountered a problem, quitting.')
+else:
+  print('That is correct! Here\'s your flag: ' + flag)
+```
+```
+# Check that flag is not empty
+if flag == "":
+  print('String XOR encountered a problem, quitting.')
+else:
+  print('That is correct! Here\'s your flag: ' + flag)
+```
+
+1. Change the '=' to '=='
+
+picoCTF{3qu4l1ty_n0t_4551gnm3nt_f6a5aefc}
+
+
+### Codebook
+Description \
+Run the Python script code.py in the same directory as codebook.txt. \
+Download code.py \
+Download codebook.txt
+
+1. Run the code file
+
+picoCTF{c0d3b00k_455157_d9aa2df2}
+
+
+### Wave A Flag
+Description \
+Can you invoke help flags for a tool or binary? This program has extraordinarily helpful information...
+
+1. Open a text editor and find the flag
+
+picoCTF{b1scu1ts_4nd_gr4vy_30e77291}
+
+
+### Secret of the Polyglot
+Description \
+The Network Operations Center (NOC) of your local institution picked up a suspicious file, they're getting conflicting information on what type of file it is. They've brought you in as an external expert to examine the file. Can you extract all the information from this strange file?
+Download the suspicious file here.
+
+1. Can find the 2nd part of the CTF directly by opening it as a PDF file
+2. Open the file in Painter to see the 1st part of the file.
+
+picoCTF{f1u3n7_1n_pn9_&_pdf_53b741d6}
