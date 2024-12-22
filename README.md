@@ -17,3 +17,6 @@ https://gchq.github.io/CyberChef/#input=YkROaGNtNWZkR2d6WDNJd2NETTEg&ieol=FF&oeo
 https://ringzer0ctf.com/tool \
 https://www.cryptool.org/en/cto/ \
 https://www.cachesleuth.com/multidecoder/
+
+### Learning Resources:
+https://primer.picoctf.org/#_introduction
