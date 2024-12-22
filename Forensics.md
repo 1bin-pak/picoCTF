@@ -19,3 +19,23 @@ Additional details will be available after launching your challenge instance.
 Upload the QR Code image and get the CTF
 
 picoCTF{p33k_@_b00_19eccd10}
+
+### Information
+Description \
+Files can always be changed in a secret way. Can you find the flag? cat.jpg
+1. Use the text editor to open the jpg file
+2. Decode the resource string uisng Base64, get the CTF
+```
+<rdf:Description rdf:about=''
+  xmlns:cc='http://creativecommons.org/ns#'>
+  <cc:license rdf:resource='cGljb0NURnt0aGVfbTN0YWRhdGFfMXNfbW9kaWZpZWR9'/>
+ </rdf:Description>
+```
+picoCTF{the_m3tadata_1s_modified}
+
+### Glory of The Garden
+Description \
+This garden contains more than it seems.
+1. Open the file in the text editor to get the CTF
+
+picoCTF{more_than_m33ts_the_3y3eBdBd2cc}
