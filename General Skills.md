@@ -411,4 +411,145 @@ ctf-player@pico-chall$ cat 3of3.flag.txt
 ```
 picoCTF{xxsh_0ut_0f_\/\/4t3r_71be5264}
 
+### What's A Net Cat? 
+Description
+Using netcat (nc) is going to be pretty important. \
+Can you connect to jupiter.challenges.picoctf.org at port 41120 to get the flag?
+```
+momo1126-picoctf@webshell:~$ nc jupiter.challenges.picoctf.org 41120
+You're on your way to becoming the net cat master
+picoCTF{nEtCat_Mast3ry_3214be47}
+```
+picoCTF{nEtCat_Mast3ry_3214be47}
+
+### Nice Netcat
+Description \
+There is a nice program that you can talk to by using this command in a shell: $ nc mercury.picoctf.net 22902, but it doesn't speak English...
+```
+momo1126-picoctf@webshell:~$ nc mercury.picoctf.net 22902
+112 
+105 
+99 
+111 
+67 
+84 
+70 
+123 
+103 
+48 
+48 
+100 
+95 
+107 
+49 
+116 
+116 
+121 
+33 
+95 
+110 
+49 
+99 
+51 
+95 
+107 
+49 
+116 
+116 
+121 
+33 
+95 
+100 
+51 
+100 
+102 
+100 
+54 
+100 
+102 
+125 
+10
+```
+```
+st = "112 105 99 111 67 84 70 123 103 48 48 100 95 107 49 116 116 121 33 95 110 49 99 51 95 107 49 116 116 121 33 95 100 51 100 102 100 54 100 102 125 10"
+s = st.replace(' ', ',')
+# 112,105,99,111,67,84,70,123,103,48,48,100,95,107,49,116,116,121,33,95,110,49,99,51,95,107,49,116,116,121,33,95,100,51,100,102,100,54,100,102,125,10
+lst = s.split(',')
+# [112, 105,99,111, 67, 84, 70, 123, 103, 48, 48, 100, 95, 107, 49, 116, 116, 121, 33, 95, 110 ,49 ,99, 51, 95, 107, 49, 116, 116, 121, 33, 95, 100, 51 ,100 ,102 ,100 ,54 ,100, 102, 125, 10]
+
+res = []
+for r in lst:
+    # res.append(chr(r))
+    # TypeError: an integer is required (got type str)
+    res.append(chr(int(r)))
+print(''.join(res))
+```
+picoCTF{g00d_k1tty!_n1c3_k1tty!_d3dfd6df}
+
+### Binhexa 
+Description \
+How well can you perfom basic binary operations? \
+Start searching for the flag here `nc titan.picoctf.net 52483`
+1. https://www.rapidtables.com/calc/math/binary-calculator.html
+```
+momo1126-picoctf@webshell:~$ nc titan.picoctf.net 60691
+
+Welcome to the Binary Challenge!"
+Your task is to perform the unique operations in the given order and find the final result in hexadecimal that yields the flag.
+
+Binary Number 1: 01000011
+Binary Number 2: 10100010
+
+Question 1/6:
+Operation 1: '>>'
+Perform a right shift of Binary Number 2 by 1 bits .
+Enter the binary result: 01010001
+Correct!
+
+Question 2/6:
+Operation 2: '&' AND
+Perform the operation on Binary Number 1&2.
+Enter the binary result: 00000010
+Correct!
+
+Question 3/6:
+Operation 3: '<<'
+Perform a left shift of Binary Number 1 by 1 bits.
+Enter the binary result: 10000110
+Correct!
+
+Question 4/6:
+Operation 4: '+'
+Perform the operation on Binary Number 1&2.
+Enter the binary result: 11100101
+Correct!
+
+Question 5/6:
+Operation 5: '*'
+Perform the operation on Binary Number 1&2.
+Enter the binary result: 10101001100110
+Correct!
+
+Question 6/6:
+Operation 6: '|' OR
+Perform the operation on Binary Number 1&2.
+Enter the binary result: 11100011
+Correct!
+
+Enter the results of the last operation in hexadecimal: E3
+Correct answer!
+
+The flag is: picoCTF{b1tw^3se_0p3eR@tI0n_su33essFuL_aeaf4b09}
+```
+picoCTF{b1tw^3se_0p3eR@tI0n_su33essFuL_aeaf4b09}
+
+### First Find 
+Description \
+Unzip this archive and find the file named 'uber-secret.txt'
+Download zip file
+1. https://zip.softgateon.net/?m=UnZip_Viewer
+2. Open \
+files/adequate_books/more_books/.secret/deeper_secrets/deepest_secrets/uber-secret.txt
+
+picoCTF{f1nd_15_f457_ab443fd1}
 
