@@ -39,3 +39,42 @@ This garden contains more than it seems.
 1. Open the file in the text editor to get the CTF
 
 picoCTF{more_than_m33ts_the_3y3eBdBd2cc}
+
+
+### Verify (Forensics)
+Description \
+People keep trying to trick my players with imitation flags. I want to make sure they get the real thing! I'm going to provide the SHA-256 hash and a decrypt script to help you know that my flags are legitimate. \
+`ssh -p 50142 ctf-player@rhea.picoctf.net`\
+Using the password f3b61b38. Accept the fingerprint with yes, and ls once connected to begin. Remember, in a shell, passwords are hidden! \
+`Checksum: fba9f49bf22aa7188a155768ab0dfdc1f9b86c47976cd0f7c9003af2e20598f7` \
+To decrypt the file once you've verified the hash, run `./decrypt.sh files/<file>.`
+
+```
+momo1126-picoctf@webshell:~$ ssh -p 58428 ctf-player@rhea.picoctf.net
+ctf-player@rhea.picoctf.net's password: 
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 6.5.0-1016-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+Last login: Sat Dec 28 07:18:45 2024 from 127.0.0.1
+ctf-player@pico-chall$ ls
+checksum.txt  decrypt.sh  files
+ctf-player@pico-chall$ cat checksum.txt 
+fba9f49bf22aa7188a155768ab0dfdc1f9b86c47976cd0f7c9003af2e20598f7
+ctf-player@pico-chall$ sha256sum files/* | grep fba9f49bf22aa7188a155768ab0dfdc1f9b86c47976cd0f7c9003af2e20598f7
+fba9f49bf22aa7188a155768ab0dfdc1f9b86c47976cd0f7c9003af2e20598f7  files/87590c24
+ctf-player@pico-chall$ ./decrypt.sh
+```
+#### References: LEARN & REDO
+https://github.com/noamgariani11/picoCTF-2024-Writeup/blob/main/Forensics/Verify.md \
+"The sha256sum command can be used on a file to get the checksum. To get the checksum of all the files in the directory the sha256sum files/* command could be used. When paired with grep command with the known SHA256 checksum that needs to be found the correct file is displayed." \
+https://www.digitalocean.com/community/tutorials/grep-command-in-linux-unix \
+grep: a command used for searching and matching text patterns in files contained in the regular expressions.
+
+picoCTF{trust_but_verify_87590c24}
