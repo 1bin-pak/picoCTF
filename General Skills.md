@@ -590,3 +590,115 @@ Here's your flag: picoCTF{g00d_gu355_6dcfb67c}
 Connection to atlas.picoctf.net closed.
 ```
 picoCTF{g00d_gu355_6dcfb67c}
+
+### Super SSH
+Description \
+Using a Secure Shell (SSH) is going to be pretty important. \
+Can you ssh as ctf-player to titan.picoctf.net at port 57277 to get the flag? \
+You'll also need the password 1db87a14. If asked, accept the fingerprint with yes. \
+If your device doesn't have a shell, you can use: https://webshell.picoctf.org \
+If you're not sure what a shell is, check out our Primer: https://primer.picoctf.com/#_the_shell
+1. `ssh ctf-player@titan.picoctf.net -p 60295` \
+Don't forget -p!!!!
+2. -p port
+Port to connect to on the remote host. This can be specified on a per-host basis in the configuration file.
+```
+momo1126-picoctf@webshell:~$ ssh ctf-player@titan.picoctf.net -p 60295
+The authenticity of host '[titan.picoctf.net]:60295 ([3.139.174.234]:60295)' can't be established.
+ED25519 key fingerprint is SHA256:4S9EbTSSRZm32I+cdM5TyzthpQryv5kudRP9PIKT7XQ.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[titan.picoctf.net]:60295' (ED25519) to the list of known hosts.
+ctf-player@titan.picoctf.net's password: 
+Welcome ctf-player, here's your flag: picoCTF{s3cur3_c0nn3ct10n_45a48857}
+Connection to titan.picoctf.net closed.
+```
+picoCTF{s3cur3_c0nn3ct10n_45a48857}
+
+### Big Zip
+Description
+Unzip this archive and find the flag.
+Download zip file https://artifacts.picoctf.net/c/505/big-zip-files.zip
+```
+┌──(kali㉿kali)-[~/code]
+└─$ wget https://artifacts.picoctf.net/c/500/files.zip 
+
+┌──(kali㉿kali)-[~/code]
+└─$ grep -r "pico" files        
+files/adequate_books/more_books/.secret/deeper_secrets/deepest_secrets/uber-secret.txt
+```
+#### Note:  UNDERSTAND $wget, $grep, REDO
+https://hackmd.io/@nataliepjlin/SknjWeri3
+https://www.whatismybrowser.com/developers/tools/wget-wizard/
+picoCTF{gr3p_15_m4g1c_ef8790dc}
+
+### Tab, Tab, Attack
+Description \
+Using tabcomplete in the Terminal will add years to your life, esp. when dealing with long rambling directory structures and filenames: Addadshashanammu.zip
+#### Hint:
+After `unzip`ing, this problem can be solved with 11 button-presses...(mostly Tab)...
+1. Upload the zip file into the Unzip viewer
+2. Get the CTF from the content
+
+picoCTF{l3v3l_up!_t4k3_4_r35t!_d32e018c}
+
+### Python Wrangling 
+Description \
+Python scripts are invoked kind of like programs in the Terminal... Can you run this Python script using this password to get the flag? 
+#### Hints:
+1. Get the Python script accessible in your shell by entering the following command in the Terminal prompt: \
+`$ wget https://mercury.picoctf.net/static/1b247b1631eb377d9392bfa4871b2eb1/ende.py`
+2. $ man python
+```
+momo1126-picoctf@webshell:~$ wget https://mercury.picoctf.net/static/1b247b1631eb377d9392bfa4871b2eb1/ende.py
+--2024-12-29 08:43:17--  https://mercury.picoctf.net/static/1b247b1631eb377d9392bfa4871b2eb1/ende.py
+Resolving mercury.picoctf.net (mercury.picoctf.net)... 18.189.209.142
+Connecting to mercury.picoctf.net (mercury.picoctf.net)|18.189.209.142|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1328 (1.3K) [application/octet-stream]
+Saving to: 'ende.py.1'
+
+ende.py.1                                   100%[===========================================================================================>]   1.30K  --.-KB/s    in 0s      
+
+2024-12-29 08:43:17 (581 MB/s) - 'ende.py.1' saved [1328/1328]
+
+momo1126-picoctf@webshell:~$ wget https://mercury.picoctf.net/static/1b247b1631eb377d9392bfa4871b2eb1/pw.txt
+--2024-12-29 08:44:06--  https://mercury.picoctf.net/static/1b247b1631eb377d9392bfa4871b2eb1/pw.txt
+Resolving mercury.picoctf.net (mercury.picoctf.net)... 18.189.209.142
+Connecting to mercury.picoctf.net (mercury.picoctf.net)|18.189.209.142|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 33 [application/octet-stream]
+Saving to: 'pw.txt'
+
+pw.txt                                      100%[===========================================================================================>]      33  --.-KB/s    in 0s      
+
+2024-12-29 08:44:06 (13.5 MB/s) - 'pw.txt' saved [33/33]
+
+momo1126-picoctf@webshell:~$ wget https://mercury.picoctf.net/static/1b247b1631eb377d9392bfa4871b2eb1/flag.txt.en
+--2024-12-29 08:44:48--  https://mercury.picoctf.net/static/1b247b1631eb377d9392bfa4871b2eb1/flag.txt.en
+Resolving mercury.picoctf.net (mercury.picoctf.net)... 18.189.209.142
+Connecting to mercury.picoctf.net (mercury.picoctf.net)|18.189.209.142|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 140 [application/octet-stream]
+Saving to: 'flag.txt.en'
+
+flag.txt.en                                 100%[===========================================================================================>]     140  --.-KB/s    in 0s      
+
+2024-12-29 08:44:48 (59.9 MB/s) - 'flag.txt.en' saved [140/140]
+
+momo1126-picoctf@webshell:~$ python3 ende.py 
+Usage: ende.py (-e/-d) [file]
+momo1126-picoctf@webshell:~$ python3 ende.py -d flag.txt.en
+Please enter the password:dbd1bea4dbd1bea4dbd1bea4dbd1bea4
+picoCTF{4p0110_1n_7h3_h0us3_dbd1bea4}
+```
+```
+momo1126-picoctf@webshell:~$ cat pw.txt | python3 ende.py -d flag.txt.en
+Please enter the password:picoCTF{4p0110_1n_7h3_h0us3_dbd1bea4}
+momo1126-picoctf@webshell:~$ 
+```
+#### Reference:
+https://ctftime.org/writeup/28917
+
+picoCTF{4p0110_1n_7h3_h0us3_dbd1bea4}
+
