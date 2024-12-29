@@ -78,3 +78,30 @@ https://www.digitalocean.com/community/tutorials/grep-command-in-linux-unix \
 grep: a command used for searching and matching text patterns in files contained in the regular expressions.
 
 picoCTF{trust_but_verify_87590c24}
+
+### CanYouSee
+Description \
+How about some hide and seek? \
+Download this file here.
+1. Extract the png file from Zip \
+https://extract.me/
+2. Use photo forensics tools to extract string from the graph
+https://29a.ch/photo-forensics/
+```
+JFIF
+7http://ns.adobe.com/xap/1.0/
+<?xpacket begin='
+' id='W5M0MpCehiHzreSzNTczkc9d'?>
+<x:xmpmeta xmlns:x='adobe:ns:meta/' x:xmptk='Image::ExifTool 11.88'>
+<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+ <rdf:Description rdf:about=''
+  xmlns:cc='http://creativecommons.org/ns#'>
+  <cc:attributionURL rdf:resource='cGljb0NURntNRTc0RDQ3QV9ISUREM05fYTZkZjhkYjh9Cg=='/>
+ </rdf:Description>
+</rdf:RDF>
+</x:xmpmeta>
+```
+3. Decode in Base64 to get the CTF \
+`cGljb0NURntNRTc0RDQ3QV9ISUREM05fYTZkZjhkYjh9Cg==`
+
+picoCTF{ME74D47A_HIDD3N_a6df8db8}
