@@ -73,7 +73,7 @@ I forgot the key to my safe but this file is supposed to help me with retrieving
 
 picoCTF{SAf3_0p3n3rr_y0u_solv3d_it_7db9fb8c}
 
-#### Reverse 
+### Reverse 
 Description \
 Try reversing this file? Can ya? \
 I forgot the password to this file. Please find it for me?
