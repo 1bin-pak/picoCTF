@@ -9,7 +9,11 @@ https://play.picoctf.org/practice?difficulty=1&page=1
 
 ## Helpful Resources
 ### Tools:
+https://www.cryptool.org/en/cto/ \
+https://futureboy.us/stegano/decinput.html \
 https://extract.me \
+https://cryptii.com/pipes/atbash-cipher \
+https://www.guballa.de/vigenere-solver \
 https://29a.ch/photo-forensics/ \
 https://zip.softgateon.net/?m=UnZip_Viewer \
 https://gchq.github.io/CyberChef/#oenc=65001&ieol=CRLF&oeol=CR \
