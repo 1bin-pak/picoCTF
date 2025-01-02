@@ -205,3 +205,67 @@ Wrap your answer with picoCTF{}, put underscores in place of pauses, and use all
 3. Just remember, in case you get any gaps in the decoded message replace them with ‘_’, and wrap the flag with picoCTF{}
 ##### Source: https://h4krg33k.medium.com/picoctf-2022-cryptography-writeups-145a6f14ac6f
 picoCTF{WH47_H47H_90D_W20U9H7}
+
+### HideToSee 
+Description \
+How about some hide and seek heh? \
+Look at this image here.
+1. Go to the website:
+https://futureboy.us/stegano/decinput.html \
+Get the string: \
+krxlXGU{zgyzhs_xizxp_05y2z65z}
+2. Use AtBash Cipher decoder:
+https://cryptii.com/pipes/atbash-cipher
+krxlXGU{zgyzhs_xizxp_05y2z65z} -> picoCTF{atbash_crack_05b2a65a}
+
+picoCTF{atbash_crack_05b2a65a}
+
+### Easy1 
+Description \
+The one time pad can be cryptographically secure, but not when you know the key. Can you solve this? We've given you the encrypted flag, key, and a table to help `UFJKXQZQUNB` with the key of  `SOLVECRYPTO`. Can you use this table to solve it?
+1. The table indicates using Vigenère Cipher Decoder to get the Flag \
+https://www.boxentriq.com/code-breaking/vigenere-cipher \
+Ciphertext: UFJKXQZQUNB \
+Key: SOLVECRYPTO \
+Plaintext: CRYPTOISFUN
+
+picoCTF{CRYPTOISFUN}
+
+### La Cifra De 
+Description \
+I found this cipher in an old book. Can you figure out what it says? Connect with \
+`nc jupiter.challenges.picoctf.org 32411`.
+```
+momo1126-picoctf@webshell:~$ nc jupiter.challenges.picoctf.org 32411
+Encrypted message:
+Ne iy nytkwpsznyg nth it mtsztcy vjzprj zfzjy rkhpibj nrkitt ltc tnnygy ysee itd tte cxjltk
+
+Ifrosr tnj noawde uk siyyzre, yse Bnretèwp Cousex mls hjpn xjtnbjytki xatd eisjd
+
+Iz bls lfwskqj azycihzeej yz Brftsk ip Volpnèxj ls oy hay tcimnyarqj dkxnrogpd os 1553 my Mnzvgs Mazytszf Merqlsu ny hox moup Wa inqrg ipl. Ynr. Gotgat Gltzndtg Gplrfdo 
+
+Ltc tnj tmvqpmkseaznzn uk ehox nivmpr g ylbrj ts ltcmki my yqtdosr tnj wocjc hgqq ol fy oxitngwj arusahje fuw ln guaaxjytrd catizm tzxbkw zf vqlckx hizm ceyupcz yz tnj fpvjc hgqqpohzCZK{m311a50_0x_a1rn3x3_h1ah3x7g996649}
+
+Ehk ktryy herq-ooizxetypd jjdcxnatoty ol f aordllvmlbkytc inahkw socjgex, bls sfoe gwzuti 1467 my Rjzn Hfetoxea Gqmexyt.
+
+Tnj Gimjyèrk Htpnjc iy ysexjqoxj dosjeisjd cgqwej yse Gqmexyt Doxn ox Fwbkwei Inahkw.
+
+Tn 1508, Ptsatsps Zwttnjxiax tnbjytki ehk xz-cgqwej ylbaql rkhea (g rltxni ol xsilypd gqahggpty) ysaz bzuri wazjc bk f nroytcgq nosuznkse ol yse Bnretèwp Cousex.
+
+Gplrfdo’y xpcuso butvlky lpvjlrki tn 1555 gx l cuseitzltoty ol yse lncsz. Yse rthex mllbjd ol yse gqahggpty fce tth snnqtki cemzwaxqj, bay ehk fwpnfmezx lnj yse osoed qptzjcs gwp mocpd hd xegsd ol f xnkrznoh vee usrgxp, wnnnh ify bk itfljcety hizm paim noxwpsvtydkse.
+```
+1. Go to the website to get the CTF
+https://www.guballa.de/vigenere-solver
+```
+It is interesting how in history people often receive credit for things they did not create
+
+During the course of history, the Vigenère Cipher has been reinvented many times
+
+It was falsely attributed to Blaise de Vigenère as it was originally described in 1553 by Giovan Battista Bellaso in his book La cifra del. Sig. Giovan Battista Bellaso 
+
+For the implementation of this cipher a table is formed by sliding the lower half of an ordinary alphabet for an apparently random number of places with respect to the upper halfpicoCTF{b311a50_0r_v1gn3r3_c1ph3r7b996649}
+
+The first well-documented description of a polyalphabetic cipher however, was made around 1467 by Leon Battista Alberti.
+```
+
+picoCTF{b311a50_0r_v1gn3r3_c1ph3r7b996649}
