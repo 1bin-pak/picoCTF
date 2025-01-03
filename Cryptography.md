@@ -269,3 +269,47 @@ The first well-documented description of a polyalphabetic cipher however, was ma
 ```
 
 picoCTF{b311a50_0r_v1gn3r3_c1ph3r7b996649}
+
+### Tapping
+Description \
+Theres tapping coming in from the wires. What's it saying \
+`nc jupiter.challenges.picoctf.org 21610`
+```
+momo1126-picoctf@webshell:~$ nc jupiter.challenges.picoctf.org 21610
+.--. .. -.-. --- -.-. - ..-. { -- ----- .-. ... ...-- -.-. ----- -.. ...-- .---- ... ..-. ..- -. ...-- ----. ----- ..--- ----- .---- ----. ..... .---- ----. } 
+```
+1. Use the Morse Code Decoder to get the CTF \
+https://dencode.com/en/ 
+
+picoCTF{M0RS3C0D31SFUN3902019519}
+
+### Waves Over Lambda
+Description \
+We made a lot of substitutions to encrypt this. Can you decrypt it? Connect with `nc jupiter.challenges.picoctf.org 13758`.
+
+```
+momo1126-picoctf@webshell:~$ nc jupiter.challenges.picoctf.org 13758
+-------------------------------------------------------------------------------
+ancpifks xbib vs dnli jtfp - jibmlbcad_vs_a_nwbi_tfuzqf_qcwkjikfdl
+-------------------------------------------------------------------------------
+xfwvcp xfq snub kvub fk ud qvsonsft yxbc vc tncqnc, v xfq wvsvkbq kxb zivkvsx ulsblu, fcq ufqb sbfiax funcp kxb znnrs fcq ufos vc kxb tvzifid ibpfiqvcp kifcsdtwfcvf; vk xfq skilar ub kxfk snub jnibrcnytbqpb nj kxb anlckid anltq xfiqtd jfvt kn xfwb snub vuonikfcab vc qbftvcp yvkx f cnztbufc nj kxfk anlckid. v jvcq kxfk kxb qvskivak xb cfubq vs vc kxb bgkibub bfsk nj kxb anlckid, hlsk nc kxb zniqbis nj kxibb skfkbs, kifcsdtwfcvf, untqfwvf fcq zlrnwvcf, vc kxb uvqsk nj kxb afiofkxvfc unlckfvcs; ncb nj kxb yvtqbsk fcq tbfsk rcnyc onikvncs nj blinob. v yfs cnk fztb kn tvpxk nc fcd ufo ni ynir pvwvcp kxb bgfak tnaftvkd nj kxb afsktb qifaltf, fs kxbib fib cn ufos nj kxvs anlckid fs dbk kn anuofib yvkx nli nyc niqcfcab sliwbd ufos; zlk v jnlcq kxfk zvskivke, kxb onsk knyc cfubq zd anlck qifaltf, vs f jfvitd ybtt-rcnyc otfab. v sxftt bckbi xbib snub nj ud cnkbs, fs kxbd ufd ibjibsx ud ubunid yxbc v kftr nwbi ud kifwbts yvkx uvcf.
+```
+1. Use the Substitution Cipher Decoder to get the flag
+https://planetcalc.com/8047/ 
+
+```
+-------------------------------------------------------------------------------
+ancpifks xbib vs dnli jtfp - jibmlbcad_vs_a_nwbi_tfuzqf_qcwkjikfdl
+-------------------------------------------------------------------------------
+xfwvcp xfq snub kvub fk ud qvsonsft yxbc vc tncqnc, v xfq wvsvkbq kxb zivkvsx ulsblu, fcq ufqb sbfiax funcp kxb znnrs fcq ufos vc kxb tvzifid ibpfiqvcp kifcsdtwfcvf; vk xfq skilar ub kxfk snub jnibrcnytbqpb nj kxb anlckid anltq xfiqtd jfvt kn xfwb snub vuonikfcab vc qbftvcp yvkx f cnztbufc nj kxfk anlckid. v jvcq kxfk kxb qvskivak xb cfubq vs vc kxb bgkibub bfsk nj kxb anlckid, hlsk nc kxb zniqbis nj kxibb skfkbs, kifcsdtwfcvf, untqfwvf fcq zlrnwvcf, vc kxb uvqsk nj kxb afiofkxvfc unlckfvcs; ncb nj kxb yvtqbsk fcq tbfsk rcnyc onikvncs nj blinob. v yfs cnk fztb kn tvpxk nc fcd ufo ni ynir pvwvcp kxb bgfak tnaftvkd nj kxb afsktb qifaltf, fs kxbib fib cn ufos nj kxvs anlckid fs dbk kn anuofib yvkx nli nyc niqcfcab sliwbd ufos; zlk v jnlcq kxfk zvskivke, kxb onsk knyc cfubq zd anlck qifaltf, vs f jfvitd ybtt-rcnyc otfab. v sxftt bckbi xbib snub nj ud cnkbs, fs kxbd ufd ibjibsx ud ubunid yxbc v kftr nwbi ud kifwbts yvkx uvcf.
+
+-------------------------------------------------------------------------------
+CONGRATS HERE IS YOUR FLAG - FREQUENCY_IS_C_OVER_LAMBDA_DNVTFRTAYU
+-------------------------------------------------------------------------------
+HAVING HAD SOME TIME AT MY DISPOSAL WHEN IN LONDON, I HAD VISITED THE BRITISH MUSEUM, AND MADE SEARCH AMONG THE BOOKS AND MAPS IN THE LIBRARY REGARDING TRANSYLVANIA; IT HAD STRUCK ME THAT SOME FOREKNOWLEDGE OF THE COUNTRY COULD HARDLY FAIL TO HAVE SOME IMPORTANCE IN DEALING WITH A NOBLEMAN OF THAT COUNTRY. I FIND THAT THE DISTRICT HE NAMED IS IN THE EXTREME EAST OF THE COUNTRY, JUST ON THE BORDERS OF THREE STATES, TRANSYLVANIA, MOLDAVIA AND BUKOVINA, IN THE MIDST OF THE CARPATHIAN MOUNTAINS; ONE OF THE WILDEST AND LEAST KNOWN PORTIONS OF EUROPE. I WAS NOT ABLE TO LIGHT ON ANY MAP OR WORK GIVING THE EXACT LOCALITY OF THE CASTLE DRACULA, AS THERE ARE NO MAPS OF THIS COUNTRY AS YET TO COMPARE WITH OUR OWN ORDNANCE SURVEY MAPS; BUT I FOUND THAT BISTRITZ, THE POST TOWN NAMED BY COUNT DRACULA, IS A FAIRLY WELL-KNOWN PLACE. I SHALL ENTER HERE SOME OF MY NOTES, AS THEY MAY REFRESH MY MEMORY WHEN I TALK OVER MY TRAVELS WITH MINA.
+```
+#### Hint
+1. Flag is not in the usual flag format
+The flag is just `FREQUENCY_IS_C_OVER_LAMBDA_DNVTFRTAYU`, Don't add 'picoCTF'
+
+FREQUENCY_IS_C_OVER_LAMBDA_DNVTFRTAYU
