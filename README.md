@@ -10,6 +10,7 @@ https://play.picoctf.org/practice?difficulty=1&page=1
 ## Helpful Resources
 ### Tools:
 https://www.cryptool.org/en/cto/ \
+https://www.cachesleuth.com/multidecoder/ \
 https://planetcalc.com/8047/ \
 https://futureboy.us/stegano/decinput.html \
 https://extract.me \
