@@ -378,3 +378,35 @@ https://redkestrel.co.uk/tools/decoder
 
 picoCTF{read_mycert_3aa80090}
 
+
+### Transposition=Trial
+Description \
+Our data got corrupted on the way here. Luckily, nothing got replaced, but every block of 3 got scrambled around! The first word seems to be three letters long, maybe you can use that to recover the rest of the message. \
+Download the corrupted message here. \
+`heTfl g as iicpCTo{7F4NRP051N5_16_35P3X51N3_V091B0AE}2`
+1. heT -> The
+1st -> 2nd; 2nd -> 3rd; 3rd -> 1st
+```
+flag = ''
+message = "heTfl g as iicpCTo{7F4NRP051N5_16_35P3X51N3_V091B0AE}2"
+for i in range(0, len(message), 3):
+		flag += message[i+2:i+3] + message[i:i+1] + message[i+1:i+2]
+
+print(flag.split()[-1])
+```
+#### Reference Redo the script
+https://github.com/noamgariani11/picoCTF-2022-Writeup/blob/main/Cryptography/transposition-trial/transposition-trial.md
+
+picoCTF{7R4N5P051N6_15_3XP3N51V3_109AB02E}
+
+### Rail-Fence
+Description \
+A type of transposition cipher is the rail fence cipher, which is described here. Here is one such cipher encrypted using the rail fence with 4 rails. Can you decrypt it? \
+Download the message here. \
+Put the decoded message in the picoCTF flag format, picoCTF{decoded_message}. \
+`Ta _7N6D8Dhlg:W3D_H3C31N__387ef sHR053F38N43DFD i33___N6`
+1. Use the Rail-Fence Decoder -> 4 rails \
+https://planetcalc.com/6947/ \
+`The flag is: WH3R3_D035_7H3_F3NC3_8361N_4ND_3ND_83F6D8D7`
+
+picoCTF{WH3R3_D035_7H3_F3NC3_8361N_4ND_3ND_83F6D8D7}
