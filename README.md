@@ -12,6 +12,7 @@ https://play.picoctf.org/practice?difficulty=1&page=1
 https://www.cryptool.org/en/cto/ \
 https://www.cachesleuth.com/multidecoder/ \
 https://planetcalc.com/8047/ \
+https://token.dev/ \
 https://futureboy.us/stegano/decinput.html \
 https://extract.me \
 https://cryptii.com/pipes/atbash-cipher \
