@@ -757,3 +757,35 @@ picoplayer@challenge:~$ sudo vi /root
 https://github.com/snwau/picoCTF-2023-Writeup/blob/main/General%20Skills/Permissions/Permissions.md
 
 picoCTF{uS1ng_v1m_3dit0r_89e9cf1a}
+
+
+### Serpentine  
+Description
+Find the flag in the Python script!
+Download Python script
+1. Run the py code and try to print the flag
+```
+Oops! I must have misplaced the print_flag function! Check my source code!
+```
+2. Call print_flag() to get the flag
+```
+import random
+import sys
+
+def str_xor(secret, key):
+    #extend key to secret length
+    new_key = key
+    i = 0
+    while len(new_key) < len(secret):
+        new_key = new_key + key[i]
+        i = (i + 1) % len(key)        
+    return "".join([chr(ord(secret_c) ^ ord(new_key_c)) for (secret_c,new_key_c) in zip(secret,new_key)])
+flag_enc = chr(0x15) + chr(0x07) + chr(0x08) + chr(0x06) + chr(0x27) + chr(0x21) + chr(0x23) + chr(0x15) + chr(0x5c) + chr(0x01) + chr(0x57) + chr(0x2a) + chr(0x17) + chr(0x5e) + chr(0x5f) + chr(0x0d) + chr(0x3b) + chr(0x19) + chr(0x56) + chr(0x5b) + chr(0x5e) + chr(0x36) + chr(0x53) + chr(0x07) + chr(0x51) + chr(0x18) + chr(0x58) + chr(0x05) + chr(0x57) + chr(0x11) + chr(0x3a) + chr(0x0f) + chr(0x0e) + chr(0x59) + chr(0x06) + chr(0x4d) + chr(0x55) + chr(0x0c) + chr(0x0f) + chr(0x14)
+
+def print_flag():
+  flag = str_xor(flag_enc, 'enkidu')
+  print(flag)
+
+print_flag()
+```
+picoCTF{7h3_r04d_l355_7r4v3l3d_ae0b80bd}
