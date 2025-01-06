@@ -789,3 +789,45 @@ def print_flag():
 print_flag()
 ```
 picoCTF{7h3_r04d_l355_7r4v3l3d_ae0b80bd}
+
+### Plumbing 
+Description \
+Sometimes you need to handle process data outside of a file. Can you find a way to keep the output from this program and search for the flag? \
+Connect to jupiter.challenges.picoctf.org 14291
+#### Hint
+What's a pipe? No not that kind of pipe... This kind
+```
+momo1126-picoctf@webshell:~$ nc jupiter.challenges.picoctf.org 14291 | grep pico
+picoCTF{digital_plumb3r_ea8bfec7}
+```
+picoCTF{digital_plumb3r_ea8bfec7}
+
+
+### Based 
+Description \
+To get truly 1337, you must understand different data encodings, such as hexadecimal or binary. Can you get the flag from this program to prove you are on the way to becoming 1337? Connect with nc jupiter.challenges.picoctf.org 29221
+1. Use the converter to get the string of the following to get the flag:
+01100011 01101000 01100001 01101001 01110010 Binary \
+154 141 155 160 Octal \
+736f636b6574 Hex
+```
+momo1126-picoctf@webshell:~$ nc jupiter.challenges.picoctf.org 29221
+Let us see how data is stored
+chair
+Please give the 01100011 01101000 01100001 01101001 01110010 as a word.
+...
+you have 45 seconds.....
+
+Input:
+chair
+Please give me the  154 141 155 160 as a word.
+Input:
+lamp
+Please give me the 736f636b6574 as a word.
+Input:
+socket
+You've beaten the challenge
+Flag: picoCTF{learning_about_converting_values_00a975ff}
+```
+
+picoCTF{learning_about_converting_values_00a975ff}
