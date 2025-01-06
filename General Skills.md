@@ -805,7 +805,8 @@ picoCTF{digital_plumb3r_ea8bfec7}
 
 ### Based 
 Description \
-To get truly 1337, you must understand different data encodings, such as hexadecimal or binary. Can you get the flag from this program to prove you are on the way to becoming 1337? Connect with nc jupiter.challenges.picoctf.org 29221
+To get truly 1337, you must understand different data encodings, such as hexadecimal or binary. Can you get the flag from this program to prove you are on the way to becoming 1337? \
+Connect with nc jupiter.challenges.picoctf.org 29221
 1. Use the converter to get the string of the following to get the flag:
 01100011 01101000 01100001 01101001 01110010 Binary \
 154 141 155 160 Octal \
