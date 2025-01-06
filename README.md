@@ -29,6 +29,10 @@ https://ringzer0ctf.com/tool \
 https://www.cryptool.org/en/cto/ \
 https://www.cachesleuth.com/multidecoder/
 https://checkserp.com/encode/unicode/ \
+https://codebeautify.org/binary-string-converter \
+https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse \
+https://codebeautify.org/hex-string-converter \
+https://codebeautify.org/binary-string-converter#
 
 ### Learning Resources:
 https://primer.picoctf.org/#_introduction \
