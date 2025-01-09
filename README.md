@@ -10,6 +10,7 @@ https://play.picoctf.org/practice?difficulty=1&page=1
 ## Helpful Resources
 ### Tools:
 https://www.cryptool.org/en/cto/ \
+https://stylesuxx.github.io/steganography/ \
 https://www.cachesleuth.com/multidecoder/ \
 https://planetcalc.com/8047/ \
 https://token.dev/ \
@@ -35,5 +36,6 @@ https://codebeautify.org/hex-string-converter \
 https://codebeautify.org/binary-string-converter#
 
 ### Learning Resources:
+https://owasp.org/www-community/attacks/SQL_Injection_Bypassing_WAF \
 https://primer.picoctf.org/#_introduction \
 https://daniellerch.me/stego/intro/tools-en/
