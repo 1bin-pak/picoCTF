@@ -125,3 +125,11 @@ picoCTF{not_all_spaces_are_created_equal_7100860b0fa779a5bd8ce29f24f586dc}
 ```		
 
 picoCTF{not_all_spaces_are_created_equal_7100860b0fa779a5bd8ce29f24f586dc}
+
+### What Lies Within
+Description \
+There's something in the building. Can you retrieve the flag?
+1. Use the online Steganography Decoder to find the CTF
+https://stylesuxx.github.io/steganography/
+
+picoCTF{h1d1ng_1n_th3_b1t5}
