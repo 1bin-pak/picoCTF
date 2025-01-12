@@ -10,6 +10,8 @@ https://play.picoctf.org/practice?difficulty=1&page=1
 ## Helpful Resources
 ### Tools:
 https://www.cryptool.org/en/cto/ \
+https://www.dcode.fr/maritime-signals-code \
+https://www.metadata2go.com/view-metadata \
 https://stylesuxx.github.io/steganography/ \
 https://www.cachesleuth.com/multidecoder/ \
 https://planetcalc.com/8047/ \
