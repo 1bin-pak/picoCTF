@@ -133,3 +133,11 @@ There's something in the building. Can you retrieve the flag?
 https://stylesuxx.github.io/steganography/
 
 picoCTF{h1d1ng_1n_th3_b1t5}
+
+### So Meta
+Description \
+Find the flag in this picture.
+1. Find the Metadata \
+https://www.metadata2go.com/view-metadata
+
+picoCTF{s0_m3ta_eb36bf44}
