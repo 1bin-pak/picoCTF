@@ -440,3 +440,11 @@ _
 KODIAK_ALASKA
 ```
 picoCTF{KODIAK_ALASKA}
+
+### Flags
+Description \
+What do the flags mean?
+1. Navy Signal Code \
+https://www.dcode.fr/maritime-signals-code
+
+PICOCTF{F1AG5AND5TUFF}
