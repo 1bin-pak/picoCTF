@@ -141,3 +141,34 @@ Find the flag in this picture.
 https://www.metadata2go.com/view-metadata
 
 picoCTF{s0_m3ta_eb36bf44}
+
+### Endianess-V2
+Description \
+Here's a file that was recovered from a 32-bits system that organized the bytes a weird way. We're not even sure what type of file it is. \
+Download it here and see what you can get out of it
+1. Use the MetaData Viewer to guess the file type --> JPEG
+https://www.metadata2go.com/result#j=e162af02-1600-43da-9f3d-fe248fb79513
+```
+warning
+Processing JPEG-like data after unknown 1-byte header
+```
+2. View the file in the Hex Editor
+https://hexed.it/
+JPEG first 4 is: ff d8 ff e0
+However we got: e0 ff d8 ff (Reversed version of JPEG header)
+3. Open the origional file in Cyberchef https://gchq.github.io/CyberChef/
+4. Choose `Swap Endianess`
+```
+Data Format: Raw
+Word Length (Bytes): 4
+Pad incomplete words: checked
+```
+Reverse every 4 bytes of the whole file data
+5. Download the file, should get a .jpg file
+6. Open the file to see the CTF
+#### References
+https://www.youtube.com/watch?v=34QnIDFRsxI \
+https://medium.com/@shreethaar/picoctf-2024-endianness-v2-8e41857f6adb \
+https://medium.com/@0xVirtu4l/picoctf-2024-endianness-v2-challenge-solve-f9c93d6b8fa6
+
+picoCTF{cert!f1Ed_iNd!4n_s0rrY_3nDian_004850bf}
