@@ -429,5 +429,90 @@ checkPassword()
 ```
 picoCTF{n0t_mUcH_h4rD3r_tH4n_x0r_948b888}
 
-### Vault-Door-7 (RE) ????
-https://captainmich.github.io/programming_language/CTF/Challenge/picoCTF2019/reverse_engineering.html
+
+### Vault-Door-7 
+Description \
+This vault uses bit shifts to convert a password string into an array of integers. Hurry, agent, we are running out of time to stop Dr. Evil's nefarious plans! The source code for this vault is here: VaultDoor7.java
+1. Understand the origional code
+```
+// Each character can be represented as a byte value using its
+    // ASCII encoding. Each byte contains 8 bits, and an int contains
+    // 32 bits, so we can "pack" 4 bytes into a single int. Here's an
+    // example: if the hex string is "01ab", then those can be
+    // represented as the bytes {0x30, 0x31, 0x61, 0x62}. When those
+    // bytes are represented as binary, they are:
+    //
+    // 0x30: 00110000
+    // 0x31: 00110001
+    // 0x61: 01100001
+    // 0x62: 01100010
+    //
+    // If we put those 4 binary numbers end to end, we end up with 32
+    // bits that can be interpreted as an int.
+    //
+    // 00110000001100010110000101100010 -> 808542562
+    //
+    // Since 4 chars can be represented as 1 int, the 32 character password can
+    // be represented as an array of 8 ints.
+    //
+    // - Minion #7816
+    public int[] passwordToIntArray(String hex) {
+        int[] x = new int[8];
+        byte[] hexBytes = hex.getBytes();
+        for (int i=0; i<8; i++) {
+            x[i] = hexBytes[i*4]   << 24
+                 | hexBytes[i*4+1] << 16
+                 | hexBytes[i*4+2] << 8
+                 | hexBytes[i*4+3];
+        }
+        return x;
+    }
+
+    public boolean checkPassword(String password) {
+        if (password.length() != 32) {
+            return false;
+        }
+        int[] x = passwordToIntArray(password);
+        return x[0] == 1096770097
+            && x[1] == 1952395366
+            && x[2] == 1600270708
+            && x[3] == 1601398833
+            && x[4] == 1716808014
+            && x[5] == 1734293296
+            && x[6] == 842413104
+            && x[7] == 1684157793;
+    }
+```
+2. int -> hex (get rid of prefix)
+```
+int_num = [1096770097, 1952395366, 1600270708, 1601398833, 1716808014, 1734293296, 842413104
+,1684157793]
+for d in int_num:
+    # Get rid of the prefix: [2:]
+    hex_num = hex(d)[2:]
+    print(hex_num)
+```
+Get
+```
+415f6231
+745f3066
+5f623174
+5f736831
+6654694e
+675f3730
+32363430
+64623561
+```
+3. hex -> ASCII \
+Go to https://www.rapidtables.com/convert/number/hex-to-ascii.html \
+Get `A_b1t_0f_b1t_sh1fTiNg_702640db5a`
+
+#### Hint
+1. Use a decimal/hexadecimal converter such as this one: https://www.mathsisfun.com/binary-decimal-hexadecimal-converter.html
+2. You will also need to consult an ASCII table such as this one: https://www.asciitable.com/
+
+#### Reference
+https://www.youtube.com/watch?v=0qQckH67gmw&t=148s
+
+picoCTF{A_b1t_0f_b1t_sh1fTiNg_702640db5a}
+
