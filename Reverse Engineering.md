@@ -82,8 +82,97 @@ I forgot the password to this file. Please find it for me?
 
 picoCTF{3lf_r3v3r5ing_succe55ful_d7b14d43}
 
-**********************************************************************************************************************
-### Valut-Door-3 (RE)
+### Vault-Door-1 
+Description \
+This vault uses some complicated arrays! I hope you can make sense of it, special agent. The source code for this vault is here: VaultDoor1.java
+1. Get the following part of the source code
+```
+// I came up with a more secure way to check the password without putting
+    // the password itself in the source code. I think this is going to be
+    // UNHACKABLE!! I hope Dr. Evil agrees...
+    //
+    // -Minion #8728
+    public boolean checkPassword(String password) {
+        return password.length() == 32 &&
+               password.charAt(0)  == 'd' &&
+               password.charAt(29) == '9' &&
+               password.charAt(4)  == 'r' &&
+               password.charAt(2)  == '5' &&
+               password.charAt(23) == 'r' &&
+               password.charAt(3)  == 'c' &&
+               password.charAt(17) == '4' &&
+               password.charAt(1)  == '3' &&
+               password.charAt(7)  == 'b' &&
+               password.charAt(10) == '_' &&
+               password.charAt(5)  == '4' &&
+               password.charAt(9)  == '3' &&
+               password.charAt(11) == 't' &&
+               password.charAt(15) == 'c' &&
+               password.charAt(8)  == 'l' &&
+               password.charAt(12) == 'H' &&
+               password.charAt(20) == 'c' &&
+               password.charAt(14) == '_' &&
+               password.charAt(6)  == 'm' &&
+               password.charAt(24) == '5' &&
+               password.charAt(18) == 'r' &&
+               password.charAt(13) == '3' &&
+               password.charAt(19) == '4' &&
+               password.charAt(21) == 'T' &&
+               password.charAt(16) == 'H' &&
+               password.charAt(27) == '5' &&
+               password.charAt(30) == '2' &&
+               password.charAt(25) == '_' &&
+               password.charAt(22) == '3' &&
+               password.charAt(28) == '0' &&
+               password.charAt(26) == '7' &&
+               password.charAt(31) == 'e';
+    }
+```
+2. Sort by the index --> sort by charAt() in Java
+```
+password.charAt(0)  == 'd' &&
+password.charAt(1)  == '3' &&
+password.charAt(2)  == '5' &&
+password.charAt(3)  == 'c' &&
+password.charAt(4)  == 'r' &&
+password.charAt(5)  == '4' &&
+password.charAt(6)  == 'm' &&
+password.charAt(7)  == 'b' &&
+password.charAt(8)  == 'l' &&
+password.charAt(9)  == '3' &&
+password.charAt(10) == '_' &&
+password.charAt(11) == 't' &&
+password.charAt(12) == 'H' &&
+password.charAt(13) == '3' &&
+password.charAt(14) == '_' &&
+password.charAt(15) == 'c' &&
+password.charAt(16) == 'H' &&
+password.charAt(17) == '4' &&
+password.charAt(18) == 'r' &&
+password.charAt(19) == '4' &&
+password.charAt(20) == 'c' &&
+password.charAt(21) == 'T' &&
+password.charAt(22) == '3' &&
+password.charAt(23) == 'r' &&
+password.charAt(24) == '5' &&
+password.charAt(25) == '_' &&
+password.charAt(26) == '7' &&
+password.charAt(27) == '5' &&
+password.charAt(28) == '0' &&
+password.charAt(29) == '9' &&
+password.charAt(30) == '2' &&
+password.charAt(31) == 'e'
+```
+3. Concatenate the characters to get the string to get the flag
+`d35cr4mbl3_tH3_CH4r4cT3r5_75092e`
+
+#### Hint:
+1. Look up the charAt() method online.
+
+
+picoCTF{d35cr4mbl3_tH3_CH4r4cT3r5_75092e}
+
+### Valut-Door-3 
 Description \
 This vault uses for-loops and byte arrays. The source code for this vault is here: VaultDoor3.java
 1. Understand the logic of the origional code
@@ -151,10 +240,11 @@ checkPassword("jU5t_a_sna_3lpm18g947_u_4_m9r54f")
 ```
 #### Reference
 https://medium.com/@sobatistacyber/picoctf-writeups-vault-door-3-86f9d578f87e
+
 picoCTF{jU5t_a_s1mpl3_an4gr4m_4_u_79958f}
 
 
-### Vault-Door-4 (RE)
+### Vault-Door-4 
 Description \
 This vault uses ASCII encoding for the password. The source code for this vault is here: VaultDoor4.java
 1. Understand the logic of the origional code
@@ -227,7 +317,7 @@ https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0085r0.html
 
 picoCTF{jU5t_4_bUnCh_0f_bYt3s_8f4a6cbf3b}
 
-### Vault-Door-5 (RE)
+### Vault-Door-5 
 Description \
 In the last challenge, you mastered octal (base 8), decimal (base 10), and hexadecimal (base 16) numbers, but this vault door uses a different change of base as well as URL encoding! The source code for this vault is here: VaultDoor5.java
 1. Understand the logic of the origional code
@@ -290,7 +380,7 @@ c0nv3rt1ng_fr0m_ba5e_64_e3152bf4
 ```
 picoCTF{c0nv3rt1ng_fr0m_ba5e_64_e3152bf4}
 
-### Vault-Door-6 (RE)
+### Vault-Door-6 
 Description \
 This vault uses an XOR encryption scheme. The source code for this vault is here: VaultDoor6.java
 1. Understand the logic of the origional code
