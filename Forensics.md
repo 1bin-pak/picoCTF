@@ -183,3 +183,13 @@ Download the image here
 4. Download Extracted Data -> Open in the txt editor to get the flag
 
 picoCTF{15_y0ur_que57_qu1x071c_0r_h3r01c_ea7deb4c}
+
+### St3g0    
+Description \
+Download this image and find the flag. \
+Download image 
+1. Upload the image to \
+https://www.aperisolve.com/
+2. Go to the `Zeteg` section to find the flag
+
+picoCTF{7h3r3_15_n0_5p00n_a1062667}
