@@ -516,3 +516,209 @@ https://www.youtube.com/watch?v=0qQckH67gmw&t=148s
 
 picoCTF{A_b1t_0f_b1t_sh1fTiNg_702640db5a}
 
+### Vault-Door-8 
+Description \
+Apparently Dr. Evil's minions knew that our agency was making copies of their source code, because they intentionally sabotaged this source code in order to make it harder for our agents to analyze and crack into! The result is a quite mess, but I trust that my best special agent will find a way to solve it. The source code for this vault is here: VaultDoor8.java
+1. Beautify the code
+https://www.onlinegdb.com/online_java_compiler#
+2. Understand the logic of the origional code
+```
+public char[] scramble(String password) {/* Scramble a password by transposing pairs of bits. */
+		char[] a = password.toCharArray();
+		for (int b=0; b<a.length; b++) {
+			char c = a[b];
+			c = switchBits(c,1,2);
+			c = switchBits(c,0,3); /* c = switchBits(c,14,3); c = switchBits(c, 2, 0); */ 
+			c = switchBits(c,5,6);
+			c = switchBits(c,4,7);
+			c = switchBits(c,0,1); /* d = switchBits(d, 4, 5); e = switchBits(e, 5, 6); */ 
+			c = switchBits(c,3,4);
+			c = switchBits(c,2,5);
+			c = switchBits(c,6,7);
+			a[b] = c;
+		}
+		return a;
+	} public char switchBits(char c, int p1, int p2) {
+		/* Move the bit in position p1 to position p2, and move the bit
+		that was in position p2 to position p1. Precondition: p1 < p2 */ 
+		char mask1 = (char)(1 << p1);
+		char mask2 = (char)(1 << p2); /* char mask3 = (char)(1<<p1<<p2); mask1++; mask1--; */ 
+		char bit1 = (char)(c & mask1);
+		char bit2 = (char)(c & mask2); /* System.out.println("bit1 " + Integer.toBinaryString(bit1));
+System.out.println("bit2 " + Integer.toBinaryString(bit2)); */ 
+        char rest = (char)(c & ~(mask1 | mask2));
+		char shift = (char)(p2 - p1);
+		char result = (char)((bit1<<shift) | (bit2>>shift) | rest);
+		return result;
+		
+	} public boolean checkPassword(String password) {
+		char[] scrambled = scramble(password);
+		char[] expected = {
+			0xF4, 0xC0, 0x97, 0xF0, 0x77, 0x97, 0xC0, 0xE4, 0xF0, 0x77, 0xA4, 0xD0, 0xC5, 0x77, 0xF4, 0x86, 0xD0, 0xA5, 0x45, 0x96, 0x27, 0xB5, 0x77, 0xD2, 0xD0, 0xB4, 0xE1, 0xC1, 0xE0, 0xD0, 0xD0, 0xE0
+		};
+		return Arrays.equals(scrambled, expected);
+	}
+```
+Python Version
+```
+class VaultDoor8:
+    def main(self):
+        password = input("Enter vault password: ")
+        stripped_password = password[8:-1]
+        if self.check_password(stripped_password):
+            print("Access granted.")
+        else:
+            print("Access denied!")
+
+    def scramble(self, password):
+        a = list(password)
+        for i in range(len(a)):
+            c = a[i]
+            c = self.switch_bits(c, 1, 2)
+            c = self.switch_bits(c, 0, 3)
+            c = self.switch_bits(c, 5, 6)
+            c = self.switch_bits(c, 4, 7)
+            c = self.switch_bits(c, 0, 1)
+            c = self.switch_bits(c, 3, 4)
+            c = self.switch_bits(c, 2, 5)
+            c = self.switch_bits(c, 6, 7)
+            a[i] = c
+        return ''.join(a)
+
+    def switch_bits(self, c, p1, p2):
+        mask1 = 1 << p1
+        mask2 = 1 << p2
+        bit1 = ord(c) & mask1
+        bit2 = ord(c) & mask2
+        rest = ord(c) & ~(mask1 | mask2)
+        shift = p2 - p1
+        result = (bit1 << shift) | (bit2 >> shift) | rest
+        return chr(result)
+
+    def check_password(self, password):
+        scrambled = self.scramble(password)
+        expected = [
+            0xF4, 0xC0, 0x97, 0xF0, 0x77, 0x97, 0xC0, 0xE4,
+            0xF0, 0x77, 0xA4, 0xD0, 0xC5, 0x77, 0xF4, 0x86,
+            0xD0, 0xA5, 0x45, 0x96, 0x27, 0xB5, 0x77, 0xD2,
+            0xD0, 0xB4, 0xE1, 0xC1, 0xE0, 0xD0, 0xD0, 0xE0
+        ]
+        return list(map(ord, scrambled)) == expected
+
+# Create an instance of VaultDoor8 and run the main method
+vault = VaultDoor8()
+vault.main()
+```
+3. Pay attention to the switchBits() of the code. Just reverse the orders to get the order that the question wants
+```
+class VaultDoor8:
+    def main(self):
+        user_input = "picoCTF{"
+        user_input += self.unScramble()
+        user_input += "}"
+
+        print("Reverse Password: " + user_input)
+        print("Enter vault password: " + user_input)
+        input_password = user_input[len("picoCTF{"):-1]
+
+        if self.check_password(input_password):
+            print("Access granted.")
+        else:
+            print("Access denied!")
+
+    def unScramble(self):
+        expected = [0xF4, 0xC0, 0x97, 0xF0, 0x77, 0x97, 0xC0, 0xE4, 0xF0, 0x77, 0xA4, 0xD0, 0xC5, 0x77, 0xF4, 0x86, 0xD0, 0xA5, 0x45, 0x96, 0x27, 0xB5, 0x77, 0xD2, 0xD0, 0xB4, 0xE1, 0xC1, 0xE0, 0xD0, 0xD0, 0xE0]
+        for i in range(len(expected)):
+            c = expected[i]
+            c = self.switch_bits(c, 6, 7)
+            c = self.switch_bits(c, 2, 5)
+            c = self.switch_bits(c, 3, 4)
+            c = self.switch_bits(c, 0, 1)
+            c = self.switch_bits(c, 4, 7)
+            c = self.switch_bits(c, 5, 6)
+            c = self.switch_bits(c, 0, 3)
+            c = self.switch_bits(c, 1, 2)
+            expected[i] = c
+        return ''.join(chr(e) for e in expected)
+
+    def scramble(self, password):
+        a = list(password)
+        for i in range(len(a)):
+            c = ord(a[i])
+            c = self.switch_bits(c, 6, 7)
+            c = self.switch_bits(c, 2, 5)
+            c = self.switch_bits(c, 3, 4)
+            c = self.switch_bits(c, 0, 1)
+            c = self.switch_bits(c, 4, 7)
+            c = self.switch_bits(c, 5, 6)
+            c = self.switch_bits(c, 0, 3)
+            c = self.switch_bits(c, 1, 2)
+            a[i] = chr(c)
+        return ''.join(a)
+
+    def switch_bits(self, c, p1, p2):
+        mask1 = 1 << p1
+        mask2 = 1 << p2
+        bit1 = c & mask1
+        bit2 = c & mask2
+        rest = c & ~(mask1 | mask2)
+        shift = p2 - p1
+        result = (bit1 << shift) | (bit2 >> shift) | rest
+        return result
+
+    def check_password(self, password):
+        scrambled = self.scramble(password)
+        expected = [
+            0xF4, 0xC0, 0x97, 0xF0, 
+			0x77, 0x97, 0xC0, 0xE4, 
+			0xF0, 0x77, 0xA4, 0xD0, 
+			0xC5, 0x77, 0xF4, 0x86, 
+			0xD0, 0xA5, 0x45, 0x96, 
+			0x27, 0xB5, 0x77, 0xD2, 
+			0xD0, 0xB4, 0xE1, 0xC1, 
+			0xE0, 0xD0, 0xD0, 0xE0
+        ]
+        return list(map(ord, scrambled)) == expected
+
+
+# Create an instance of VaultDoor8 and run the main method
+vault = VaultDoor8()
+vault.main()
+
+"""
+Reverse Password: picoCTF{s0m3_m0r3_b1t_sh1fTiNg_91c642112}
+Enter vault password: picoCTF{s0m3_m0r3_b1t_sh1fTiNg_91c642112}
+Access denied!
+"""
+```
+#### Understand, REDO
+
+#### Reference
+https://johantannh.github.io/picoctf2019-writeup/reversing/
+https://www.youtube.com/watch?v=KP83DLVbD2Y&t=280s
+
+picoCTF{s0m3_m0r3_b1t_sh1fTiNg_91c642112}
+
+
+### Unpackme.py 
+Description \
+Can you get the flag? \
+Reverse engineer this `Python program`.
+1. change `exec(plain.decode())` to `print(plain.decode())` to run it as a script instead of the exec file to get the flag
+2. Use this website to run the `Cryptography` library online
+https://onecompiler.com/python/3vj2haaqr
+```
+import base64
+from cryptography.fernet import Fernet
+
+
+payload = b'gAAAAABkzWGSzE6VQNTzvRXOXekQeW4CY6NiRkzeImo9LuYBHAYw_hagTJLJL0c-kmNsjY33IUbU2IWlqxA3Fpp9S7RxNkiwMDZgLmRlI9-lGAEW-_i72RSDvylNR3QkpJW2JxubjLUC5VwoVgH62wxDuYu1rRD5KadwTADdABqsx2MkY6fKNTMCYY09Se6yjtRBftfTJUL-LKz2bwgXNd6O-WpbfXEMvCv3gNQ7sW4pgUnb-gDVZvrLNrug_1YFaIe3yKr0Awo0HIN3XMdZYpSE1c9P4G0sMQ=='
+
+key_str = 'correctstaplecorrectstaplecorrec'
+key_base64 = base64.b64encode(key_str.encode())  base64.b64encode: then b64 encode it
+f = Fernet(key_base64)
+plain = f.decrypt(payload)
+print(plain.decode()) 
+# exec(plain.decode())
+```
+picoCTF{175_chr157m45_cd82f94c}
