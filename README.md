@@ -10,6 +10,7 @@ https://play.picoctf.org/practice?difficulty=1&page=1
 ## Helpful Resources
 ### Tools:
 https://onecompiler.com/python/3vj2haaqr \
+https://georgeom.net/StegOnline/upload \
 https://www.cryptool.org/en/cto/ \
 https://www.dcode.fr/maritime-signals-code \
 https://www.metadata2go.com/view-metadata \
