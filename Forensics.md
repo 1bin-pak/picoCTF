@@ -172,3 +172,14 @@ https://medium.com/@shreethaar/picoctf-2024-endianness-v2-8e41857f6adb \
 https://medium.com/@0xVirtu4l/picoctf-2024-endianness-v2-challenge-solve-f9c93d6b8fa6
 
 picoCTF{cert!f1Ed_iNd!4n_s0rrY_3nDian_004850bf}
+
+### MSB 
+Description \
+This image passes LSB statistical analysis, but we can't help but think there must be something to the visual artifacts present in this image... \
+Download the image here
+1. Upload the png file to https://georgeom.net/StegOnline/upload
+2. Choose `Extract Files / Data`
+3. Check the MSB values `7` for R, G, B
+4. Download Extracted Data -> Open in the txt editor to get the flag
+
+picoCTF{15_y0ur_que57_qu1x071c_0r_h3r01c_ea7deb4c}
