@@ -193,3 +193,16 @@ https://www.aperisolve.com/
 2. Go to the `Zeteg` section to find the flag
 
 picoCTF{7h3r3_15_n0_5p00n_a1062667}
+
+
+### Hideme
+Description \
+Every file gets a flag. \
+The SOC analyst saw one image been sent back and forth between two people. They decided to investigate and found out that there was more than what meets the eye here.
+1. Download the file and upload to https://www.aperisolve.com/9fa5ca05a7c9e9930f27d577d7f9cbf1
+2. Download the .7Z file from section `Foremost`
+3. Upload the .7Z file to https://extract.me/
+4. Doaload the 00000077.zip file in local download
+5. Open `secret` folder -> Open flag.png to see the flag
+
+picoCTF{Hiddinng_An_imag3_within_@n_ima9e_d55982e8}
