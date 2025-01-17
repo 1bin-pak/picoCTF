@@ -9,6 +9,7 @@ https://play.picoctf.org/practice?difficulty=1&page=1
 
 ## Helpful Resources
 ### Tools:
+https://extract.me/ \
 https://www.aperisolve.com/ \
 https://onecompiler.com/python/3vj2haaqr \
 https://georgeom.net/StegOnline/upload \
