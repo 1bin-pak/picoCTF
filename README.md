@@ -12,6 +12,7 @@ https://play.picoctf.org/practice?difficulty=1&page=1
 https://extract.me/ \
 https://www.aperisolve.com/ \
 https://onecompiler.com/python/3vj2haaqr \
+https://www.decompiler.com/ \
 https://georgeom.net/StegOnline/upload \
 https://www.cryptool.org/en/cto/ \
 https://www.dcode.fr/maritime-signals-code \
