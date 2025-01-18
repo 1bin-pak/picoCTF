@@ -206,3 +206,16 @@ The SOC analyst saw one image been sent back and forth between two people. They 
 5. Open `secret` folder -> Open flag.png to see the flag
 
 picoCTF{Hiddinng_An_imag3_within_@n_ima9e_d55982e8}
+
+### Lookey Here
+Description \
+Attackers have hidden information in a very large mass of data in the past, maybe they are still doing it. \
+Download the data here.
+1. Download the file and use `grep` to find the flag
+```
+momo1126-picoctf@webshell:~$ wget https://artifacts.picoctf.net/c/124/anthem.flag.txt
+
+momo1126-picoctf@webshell:~$ grep 'CTF' anthem.flag.txt 
+      we think that the men of picoCTF{gr3p_15_@w3s0m3_4c479940}
+```
+picoCTF{gr3p_15_@w3s0m3_4c479940}
