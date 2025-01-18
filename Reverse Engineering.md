@@ -722,3 +722,202 @@ print(plain.decode())
 # exec(plain.decode())
 ```
 picoCTF{175_chr157m45_cd82f94c}
+
+### Fresh Java   
+Description \
+Can you get the flag? \
+Reverse engineer this Java program.
+1. Download the `.class` file
+2. Use the `decomplier` https://www.decompiler.com/ \
+to see the `.java` file to get the flag
+```
+import java.util.Scanner;
+
+public class KeygenMe {
+   public static void main(String[] var0) {
+      Scanner var1 = new Scanner(System.in);
+      System.out.println("Enter key:");
+      String var2 = var1.nextLine();
+      if (var2.length() != 34) {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(33) != '}') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(32) != 'e') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(31) != 'b') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(30) != '6') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(29) != 'a') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(28) != '2') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(27) != '3') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(26) != '3') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(25) != '9') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(24) != '_') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(23) != 'd') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(22) != '3') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(21) != 'r') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(20) != '1') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(19) != 'u') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(18) != 'q') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(17) != '3') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(16) != 'r') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(15) != '_') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(14) != 'g') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(13) != 'n') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(12) != '1') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(11) != 'l') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(10) != '0') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(9) != '0') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(8) != '7') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(7) != '{') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(6) != 'F') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(5) != 'T') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(4) != 'C') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(3) != 'o') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(2) != 'c') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(1) != 'i') {
+         System.out.println("Invalid key");
+      } else if (var2.charAt(0) != 'p') {
+         System.out.println("Invalid key");
+      } else {
+         System.out.println("Valid key");
+      }
+   }
+}
+```
+#### Hint
+1. Use a decompiler for Java!
+
+#### Note
+1. A Java class file is a file containing Java bytecode and having .class extension that can be executed by JVM \
+https://www.geeksforgeeks.org/java-class-file/
+2. A decompiler is a computer program that converts an executable file into a high-level source code \
+https://medium.com/@pnfsoftware/what-is-decompilation-26ce48f282bc
+
+picoCTF{700l1ng_r3qu1r3d_9332a6be}
+
+### File-Run1 
+Description \
+A program has been provided to you, what happens if you try to run it on the command line? \
+Download the program here.
+1. Download the file -> Change permission -> Run it
+```
+momo1126-picoctf@webshell:~$ wget https://artifacts.picoctf.net/c/218/run
+--2025-01-18 05:52:07--  https://artifacts.picoctf.net/c/218/run
+Resolving artifacts.picoctf.net (artifacts.picoctf.net)... 3.160.5.93, 3.160.5.42, 3.160.5.18, ...
+Connecting to artifacts.picoctf.net (artifacts.picoctf.net)|3.160.5.93|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 16736 (16K) [application/octet-stream]
+Saving to: 'run'
+
+run                                          100%[==============================================================================================>]  16.34K  --.-KB/s    in 0.004s  
+
+2025-01-18 05:52:07 (3.80 MB/s) - 'run' saved [16736/16736]
+
+momo1126-picoctf@webshell:~$ ls
+README.txt  anthem.flag.txt  run
+momo1126-picoctf@webshell:~$ ls -l
+total 136
+-rw-r--r-- 1 root             root               4443 Jan 18 05:51 README.txt
+-rw-rw-r-- 1 momo1126-picoctf momo1126-picoctf 108668 Mar 16  2023 anthem.flag.txt
+-rw-rw-r-- 1 momo1126-picoctf momo1126-picoctf  16736 Mar 16  2023 run
+momo1126-picoctf@webshell:~$ chmod +x run
+momo1126-picoctf@webshell:~$ ls -l
+total 136
+-rw-r--r-- 1 root             root               4443 Jan 18 05:51 README.txt
+-rw-rw-r-- 1 momo1126-picoctf momo1126-picoctf 108668 Mar 16  2023 anthem.flag.txt
+-rwxrwxr-x 1 momo1126-picoctf momo1126-picoctf  16736 Mar 16  2023 run
+momo1126-picoctf@webshell:~$ ./run
+The flag is: picoCTF{U51N6_Y0Ur_F1r57_F113_9bc52b6b}
+```
+#### Hint
+1. To run the program at all, you must make it executable (i.e. $ chmod +x run)
+2. Try running it by adding a '.' in front of the path to the file (i.e. $ ./run)
+
+#### Note
+https://askubuntu.com/questions/530198/how-to-open-bash-files-with-terminal
+
+picoCTF{U51N6_Y0Ur_F1r57_F113_9bc52b6b}
+
+### File-Run2 
+Description \
+Another program, but this time, it seems to want some input. What happens if you try to run it on the command line with input "Hello!"? \
+Download the program here.
+1. Download the file -> Change permissions -> Run it with the input "Hello!"
+```
+momo1126-picoctf@webshell:~$ wget https://artifacts.picoctf.net/c/155/run
+--2025-01-18 06:10:37--  https://artifacts.picoctf.net/c/155/run
+Resolving artifacts.picoctf.net (artifacts.picoctf.net)... 3.160.5.42, 3.160.5.93, 3.160.5.71, ...
+Connecting to artifacts.picoctf.net (artifacts.picoctf.net)|3.160.5.42|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 16816 (16K) [application/octet-stream]
+Saving to: 'run.1'
+
+run.1                                       100%[=========================================================================================>]  16.42K  --.-KB/s    in 0s      
+
+2025-01-18 06:10:37 (95.7 MB/s) - 'run.1' saved [16816/16816]
+
+momo1126-picoctf@webshell:~$ ls
+README.txt  anthem.flag.txt  run  run.1
+momo1126-picoctf@webshell:~$ ls -l
+total 156
+-rw-r--r-- 1 root             root               4443 Jan 18 05:51 README.txt
+-rw-rw-r-- 1 momo1126-picoctf momo1126-picoctf 108668 Mar 16  2023 anthem.flag.txt
+-rwxrwxr-x 1 momo1126-picoctf momo1126-picoctf  16736 Mar 16  2023 run
+-rw-rw-r-- 1 momo1126-picoctf momo1126-picoctf  16816 Mar 16  2023 run.1
+momo1126-picoctf@webshell:~$ chmod +x run.1 
+momo1126-picoctf@webshell:~$ ./run.1 
+Run this file with only one argument.
+
+momo1126-picoctf@webshell:~$ ./run.1 Sup
+Won't you say 'Hello!' to me first?
+momo1126-picoctf@webshell:~$ ./run.1 Hello
+Won't you say 'Hello!' to me first?
+momo1126-picoctf@webshell:~$ ./run.1 Hello!
+The flag is: picoCTF{F1r57_4rgum3n7_be0714da}
+```
+#### Hint
+1. Try running it and add the phrase "Hello!" with a space in front (i.e. "./run Hello!")
+
+#### Note
+1. There's no space between `./` and `run.1`
+```
+momo1126-picoctf@webshell:~$ "./ run.1 Sup"
+-bash: ./ run.1 Sup: No such file or directory
+
+momo1126-picoctf@webshell:~$ ./run.1 Sup
+Won't you say 'Hello!' to me first?
+```
+
+picoCTF{F1r57_4rgum3n7_be0714da}
+
+
