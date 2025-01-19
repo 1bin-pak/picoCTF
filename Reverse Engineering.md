@@ -920,4 +920,11 @@ Won't you say 'Hello!' to me first?
 
 picoCTF{F1r57_4rgum3n7_be0714da}
 
+### Crackme-py 
+Description \
+`crackme.py`
+1. Download and read the `.py` file, see it uses `ROT47` decode
+2. Use the `ROT47` decoder to get the flag
+https://dencode.com/en/cipher/rot47
 
+picoCTF{1|\/|_4_p34|\|ut_a79b6c2d}
