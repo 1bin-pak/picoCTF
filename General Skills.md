@@ -966,3 +966,115 @@ https://medium.com/@m.mehloul/picoctf-2024-dont-you-love-banners-writeup-a2a9182
 https://medium.com/@niceselol/picoctf-2024-dont-you-love-banners-40b8c1fc5050
 
 picoCTF{b4nn3r_gr4bb1n9_su((3sfu11y_b3ee718e}
+
+
+### Chrono 
+Description \
+How to automate tasks to run at intervals on linux servers? \
+Use ssh to connect to this server: \
+Server: saturn.picoctf.net \
+Port: 65199 \
+Username: picoplayer \ 
+Password: emrdK96SGH
+1. Automate tasks ->  /etc/crontab \
+`/etc/crontab/` a file which keeps track of tasks that are run periodically on a linux server.
+```
+momo1126-picoctf@webshell:~$ ssh picoplayer@saturn.picoctf.net -p 65199
+picoplayer@challenge:/$ cat /etc/crontab
+# picoCTF{Sch3DUL7NG_T45K3_L1NUX_0bb95b71}
+```
+#### Reference
+https://www.youtube.com/watch?v=K9H6i73ydMM
+
+### Useless 
+Description \
+There's an interesting script in the user's home directory \
+The work computer is running SSH. We've been given a script which performs some basic calculations, explore the script and find a flag. \
+Hostname: saturn.picoctf.net \
+Port:     65305 \
+Username: picoplayer \
+Password: password \
+1. Read the manual of `useless`
+```
+momo1126-picoctf@webshell:~$ ssh picoplayer@saturn.picoctf.net -p 52805
+
+picoplayer@challenge:~$ ls -la
+total 16
+drwxr-xr-x 1 picoplayer picoplayer   20 Jan 20 03:55 .
+drwxr-xr-x 1 root       root         24 Aug  4  2023 ..
+-rw-r--r-- 1 picoplayer picoplayer  220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 picoplayer picoplayer 3771 Feb 25  2020 .bashrc
+drwx------ 2 picoplayer picoplayer   34 Jan 20 03:55 .cache
+-rw-r--r-- 1 picoplayer picoplayer  807 Feb 25  2020 .profile
+-rwxr-xr-x 1 root       root        517 Mar 16  2023 useless
+
+picoplayer@challenge:~$ cat useless 
+#!/bin/bash
+# Basic mathematical operations via command-line arguments
+
+if [ $# != 3 ]
+then
+  echo "Read the code first"
+else
+        if [[ "$1" == "add" ]]
+        then 
+          sum=$(( $2 + $3 ))
+          echo "The Sum is: $sum"  
+
+        elif [[ "$1" == "sub" ]]
+        then 
+          sub=$(( $2 - $3 ))
+          echo "The Substract is: $sub" 
+
+        elif [[ "$1" == "div" ]]
+        then 
+          div=$(( $2 / $3 ))
+          echo "The quotient is: $div" 
+
+        elif [[ "$1" == "mul" ]]
+        then
+          mul=$(( $2 * $3 ))
+          echo "The product is: $mul" 
+
+        else
+          echo "Read the manual"
+         
+        fi
+fi
+
+
+picoplayer@challenge:~$ man
+What manual page do you want?
+For example, try 'man man'.
+
+picoplayer@challenge:~$ man useless
+
+useless
+     useless, -- This is a simple calculator script
+
+SYNOPSIS
+     useless, [add sub mul div] number1 number2
+
+DESCRIPTION
+     Use the useless, macro to make simple calulations like addition,subtraction, multiplication and division.
+
+Examples
+     ./useless add 1 2
+       This will add 1 and 2 and return 3
+
+     ./useless mul 2 3
+       This will return 6 as a product of 2 and 3
+
+     ./useless div 6 3
+       This will return 2 as a quotient of 6 and 3
+
+     ./useless sub 6 5
+       This will return 1 as a remainder of substraction of 5 from 6
+
+Authors
+     This script was designed and developed by Cylab Africa
+
+     picoCTF{us3l3ss_ch4ll3ng3_3xpl0it3d_8504}
+```
+
+picoCTF{us3l3ss_ch4ll3ng3_3xpl0it3d_8504}
