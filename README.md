@@ -10,6 +10,7 @@ https://play.picoctf.org/practice?difficulty=1&page=1
 ## Helpful Resources
 ### Tools:
 https://extract.me/ \
+https://www.jdoodle.com/compile-assembler-nasm-online \
 https://www.aperisolve.com/ \
 https://www.svgviewer.dev/ \
 https://www.pdf2go.com/pdf-to-text \
