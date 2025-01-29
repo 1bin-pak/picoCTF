@@ -1065,3 +1065,64 @@ Download the assembly dump here.
 https://medium.com/@BaldrTheKing/bit-o-asm-3-1bf32c5de685
 
 picoCTF{2619997}
+
+
+### Bit-O-Asm-4 
+Description \
+Can you figure out what is in the eax register? Put your answer in the picoCTF flag format: picoCTF{n} where n is the contents of the eax register in the decimal number base. If the answer was 0x11 your flag would be picoCTF{17}. \
+Download the assembly dump here.
+```
+<+0>:     endbr64 
+<+4>:     push   rbp
+<+5>:     mov    rbp,rsp
+<+8>:     mov    DWORD PTR [rbp-0x14],edi
+<+11>:    mov    QWORD PTR [rbp-0x20],rsi
+<+15>:    mov    DWORD PTR [rbp-0x4],0x9fe1a
+<+22>:    cmp    DWORD PTR [rbp-0x4],0x2710                        
+<+29>:    jle    0x55555555514e <main+37>                        
+<+31>:    sub    DWORD PTR [rbp-0x4],0x65
+<+35>:    jmp    0x555555555152 <main+41>                        
+<+37>:    add    DWORD PTR [rbp-0x4],0x65
+<+41>:    mov    eax,DWORD PTR [rbp-0x4]
+<+44>:    pop    rbp
+<+45>:    ret
+```
+#### Need to Know
+1. cmp: compare but don't store the subtracted results
+
+2. jle: jump if less than or equal
+```
+eg.
+INC	EDX
+CMP	EDX, 10	; Compares whether the counter has reached 10
+JLE	LP1     ; If it is less than or equal to 10, then jump to LP1
+```
+3. jmp: unconfitional jump
+
+#### Analysis
+```
+<+15>:    mov    DWORD PTR [rbp-0x4],0x9fe1a
+<+22>:    cmp    DWORD PTR [rbp-0x4],0x2710                     
+
+0x9fe1a cmp 0x2710 => 0x9fe1a > 0x2710 => keep 0x9fe1a which is 654874
+
+<+29>:    jle    0x55555555514e <main+37>                        
+0x55555555514e = 93824992235854 > 654874 => no jump
+
+<+31>:    sub    DWORD PTR [rbp-0x4],0x65
+654874 - 0x65 = 654874 - 101 = 654773
+
+<+35>:    jmp    0x555555555152 <main+41>                        
+654773 Unconditional jump to <+41>, no need to do subtraction on <+37>
+
+<+37>:    add    DWORD PTR [rbp-0x4],0x65
+<+41>:    mov    eax,DWORD PTR [rbp-0x4]
+result = 654773
+
+```
+#### Reference
+https://cs.brown.edu/courses/cs033/docs/guides/x64_cheatsheet.pdf
+https://stackoverflow.com/questions/45898438/understanding-cmp-instruction
+https://www.tutorialspoint.com/assembly_programming/assembly_conditions.htm
+
+picoCTF{654773}
