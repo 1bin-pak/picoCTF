@@ -948,8 +948,90 @@ picoCTF{48}
 Description \
 Can you figure out what is in the eax register? Put your answer in the picoCTF flag format: picoCTF{n} where n is the contents of the eax register in the decimal number base. If the answer was 0x11 your flag would be picoCTF{17}. \
 Download the assembly dump here.
-1. `0x9fe1a` is `654874` in Decimal 
+1. `0x9fe1a` is `654874` in Decimal
+### Line-by-Line Explanation
+```
+1. <+0>: endbr64
+Purpose: Security instruction (Intel CET).
+Details: Marks a valid branch target for indirect jumps/calls. Prevents control-flow hijacking attacks (e.g., ROP attacks). Modern compilers add this by default.
+
+2. <+4>: push rbp
+Purpose: Save the old base pointer.
+Details: Pushes the value of rbp (base pointer) onto the stack. This preserves the caller’s stack frame, allowing us to restore it later.
+
+3. <+5>: mov rbp, rsp
+Purpose: Set up a new stack frame.
+Details: Copies rsp (stack pointer) into rbp. Now, rbp points to the top of the stack (the start of the current function’s stack frame).
+
+4. <+8>: mov DWORD PTR [rbp-0x14], edi
+Purpose: Save the 1st argument (edi) to the stack.
+Details:
+edi holds the first 32-bit integer argument in x86-64 calling conventions (e.g., int argc in main).
+Stores edi at memory address rbp - 0x14 (a 4-byte slot on the stack).
+
+5. <+11>: mov QWORD PTR [rbp-0x20], rsi
+Purpose: Save the 2nd argument (rsi) to the stack.
+Details:
+rsi holds the second 64-bit pointer argument (e.g., char* argv[] in main).
+Stores rsi at memory address rbp - 0x20 (an 8-byte slot on the stack).
+
+6. <+15>: mov DWORD PTR [rbp-0x4], 0x9fe1a
+Purpose: Initialize a local variable.
+Details:
+Writes the 32-bit value 0x9fe1a (decimal: 655,642) to the stack at rbp - 0x4.
+Likely a constant or temporary variable used in the function.
+
+7. <+22>: mov eax, DWORD PTR [rbp-0x4]
+Purpose: Prepare the return value.
+Details:
+Copies the 32-bit value from rbp - 0x4 (the constant 0x9fe1a) into eax.
+In x86-64, eax holds the return value of a function.
+
+8. <+25>: pop rbp
+Purpose: Restore the old base pointer.
+Details:
+Pops the saved rbp value (from line 2) off the stack back into rbp.
+Restores the caller’s stack frame.
+
+9. <+26>: ret
+Purpose: Return from the function.
+Details:
+Pops the return address from the stack and jumps to it.
+Control returns to the caller (e.g., main or another function).
+```
+#### What Does This Function Do?
+```
+Input: Takes two arguments (a 32-bit integer edi and a 64-bit pointer rsi).
+Action: Stores these arguments on the stack, initializes a local variable to 0x9fe1a, and returns that value via eax.
+Behavior: Essentially returns the constant 0x9fe1a regardless of input.
+```
+
+#### Stack Layout Visualization
+```
+Higher Addresses
++------------------+
+| ...              |
+| Saved RBP        | <-- RBP after `push rbp` (line 2)
++------------------+
+| [RBP - 0x4]      | 0x9fe1a (local variable)  ← EAX gets this value
++------------------+
+| ...              |
++------------------+
+| [RBP - 0x14]     | Value of EDI (1st argument)
++------------------+
+| [RBP - 0x20]     | Value of RSI (2nd argument)
++------------------+
+Lower Addresses
+```
+#### Key Takeaways
+```
+Stack Frames: rbp marks the base of the stack frame, while rsp marks the top.
+Argument Storage: Arguments are stored on the stack for later use.
+Return Values: Use eax (32-bit) or rax (64-bit) to return values.
+Security: endbr64 is a modern security feature for control-flow integrity.
+```
 #### Reference
+DeepSeek AI
 https://hackmd.io/@cmonast/ryJLkBtHa
 
 picoCTF{654874}
