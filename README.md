@@ -11,6 +11,8 @@ https://play.picoctf.org/practice?difficulty=1&page=1
 ### Tools:
 https://extract.me/ \
 https://www.jdoodle.com/compile-assembler-nasm-online \
+https://tools.atatus.net/tools/hex-to-decimal \
+https://cs.brown.edu/courses/cs033/docs/guides/x64_cheatsheet.pdf \
 https://www.aperisolve.com/ \
 https://www.svgviewer.dev/ \
 https://www.pdf2go.com/pdf-to-text \
