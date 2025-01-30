@@ -934,6 +934,16 @@ picoCTF{1|\/|_4_p34|\|ut_a79b6c2d}
 Description \
 Can you figure out what is in the eax register? Put your answer in the picoCTF flag format: picoCTF{n}  where n is the contents of the eax register in the decimal number base. If the answer was 0x11 your flag would be picoCTF{17}. \
 Download the assembly dump here.
+```
+<+0>:     endbr64 
+<+4>:     push   rbp
+<+5>:     mov    rbp,rsp
+<+8>:     mov    DWORD PTR [rbp-0x4],edi
+<+11>:    mov    QWORD PTR [rbp-0x10],rsi
+<+15>:    mov    eax,0x30
+<+20>:    pop    rbp
+<+21>:    ret
+```
 1. Download the file and upload to the Online Assembler
 https://www.jdoodle.com/compile-assembler-nasm-online
 2. Find the `eax` line and the hex number after it
@@ -948,6 +958,17 @@ picoCTF{48}
 Description \
 Can you figure out what is in the eax register? Put your answer in the picoCTF flag format: picoCTF{n} where n is the contents of the eax register in the decimal number base. If the answer was 0x11 your flag would be picoCTF{17}. \
 Download the assembly dump here.
+```
+<+0>:     endbr64 
+<+4>:     push   rbp
+<+5>:     mov    rbp,rsp
+<+8>:     mov    DWORD PTR [rbp-0x14],edi
+<+11>:    mov    QWORD PTR [rbp-0x20],rsi
+<+15>:    mov    DWORD PTR [rbp-0x4],0x9fe1a
+<+22>:    mov    eax,DWORD PTR [rbp-0x4]
+<+25>:    pop    rbp
+<+26>:    ret
+```
 1. `0x9fe1a` is `654874` in Decimal
 ### Line-by-Line Explanation
 ```
